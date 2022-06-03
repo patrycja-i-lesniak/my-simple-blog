@@ -50,3 +50,38 @@ navbar .links {
   color: #f1356d;
   margin-bottom: 8px;
 }
+.blog-preview a {
+  text-decoration: none;
+}
+
+/* create New Blog form */
+
+.create {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.create label {
+  text-align: left;
+  display: block;
+}
+.create input,
+.create textarea,
+.create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.create button {
+  background:#f1356d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: -2px 2px 2px 0.5px rgba(0,0,0,.1)
+}
