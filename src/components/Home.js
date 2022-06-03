@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import BlogList from './BlogList';
 
 export default function Home() {
+	const [ blogs, setBlogs ] = useState(null);
 
-	const handleClick = (e) => {
-		console.log('Hello world!', e);
-	};
+	const [isLoading, setIsLoading] = useState(true)
 
-    const handleClickAgain = (name, e) => {
-        console.log("Hello " + name, e.target)
-    }
+	// const handleDelete = (id) => {
+	// 	const newBlogs = blogs.filter((blog) => blog.id !== id);
+	// 	setBlogs(newBlogs);
+	// };
+
+	useEffect(() => {
+		// setTimeout only simulates a real fetch api
+		setTimeout(()=>{
+			fetch('http://localhost:8000/blogs')
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				setBlogs(data);
+				setIsLoading(false)
+			});
+		}, 1000)
+		
+	}, []);
 	return (
 		<div className="home">
-			<h2>Homepage</h2>
-            <button onClick={handleClick}>Click</button>
-            <button onClick={(e)=>handleClickAgain('Aga', e)}>Click Again</button>
-
+			{isLoading && <div>Loading...</div>}
+			{blogs && <BlogList blogs={blogs} title="All blogs!"  />}
+			{/* <BlogList blogs={blogs.filter(({ author }) => author === 'someone')} title="Someone's blogs!" handleDelete={handleDelete}/> */}
 		</div>
 	);
 }
