@@ -31,16 +31,16 @@ export default function Create() {
 			<form onSubmit={handleSubmit}>
 				<label>Blog title:</label>
 				<input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} />
-				<label>Blog body</label>
-				<textarea required value={body} onChange={(e) => setBody(e.target.value)} />
+				<label>Blog body:</label>
+				<textarea  rows='10' required value={body} onChange={(e) => setBody(e.target.value)} />
 				<label>Blog author:</label>
 				<select>
 					<option value={author} onChange={(e) => setAuthor(e.target.value)}>
 						Patrycja
 					</option>
 				</select>
-				{!isLoading && <button>Add blog</button>}
-				{isLoading && <button disabled>Adding blog...</button>}
+				{!isLoading && <button>Add Blog</button>}
+				{isLoading && <button disabled>Adding Blog...</button>}
 			</form>
 		</div>
 	);
