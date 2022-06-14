@@ -1,32 +1,30 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
+// components
 import Navbar from 'components/Navbar';
-import Home from 'components/Home';
-import Create from 'components/Create';
-import BlogDetails from 'components/BlogDetails';
+
+// pages
+import Home from 'pages/Home';
+import Create from 'pages/Create';
+import BlogDetails from 'pages/BlogDetails';
+import Login from 'pages/Login';
+import Signup from 'pages/Signup';
 
 function App() {
 	return (
-		<Router>
-			<div className="App">
-				<Navbar />
-				<div className="content">
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route path="/create">
-							<Create />
-						</Route>
-            <Route path="/blogs/:id">
-							<BlogDetails />
-						</Route>
-						{/* <Route path="/contact"><Contact/></Route>
-						<Route path="/about"><About/></Route> */}
-					</Switch>
-				</div>
+		<div className="App">
+			<Navbar />
+			<div className="content">
+				<Routes>
+					<Route exact path="/" element={<Home />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/signup" element={<Signup />} />
+					<Route path="/blogs/:id" element={<BlogDetails />} />
+					<Route path="create" element={<Create />} />
+				</Routes>
 			</div>
-		</Router>
+		</div>
 	);
 }
 
