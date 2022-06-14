@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
+
 
 export default function Create() {
 	const [ title, setTitle ] = useState('');
 	const [ body, setBody ] = useState('');
 	const [ author, setAuthor ] = useState('Patrycja');
 	const [ isLoading, setIsLoading ] = useState(false);
-	const history = useHistory();
+
+	const navigate = useNavigate('/')
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -22,7 +24,7 @@ export default function Create() {
 		}).then(() => {
 			console.log('new blog added');
 			setIsLoading(false);
-			history.push('/');
+			navigate('/')
 		});
 	};
 	return (
