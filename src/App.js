@@ -3,13 +3,16 @@ import { Route, Routes } from 'react-router-dom';
 
 // components
 import Navbar from './components/layout/Navbar';
-import Dashboard from '../src/components/dashboard/Dashboard';
+import Dashboard from './components/dashboard/Dashboard';
+import BlogDetails from './components/blogs/BlogDetails';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
 
 // pages
 // import Home from './pages/Home';
 import Create from './pages/Create';
-import BlogDetails from './pages/BlogDetails';
-import Login from './pages/Login';
+// import BlogDetails from './pages/BlogDetails';
+// import Login from './pages/Login';
 import Signup from './pages/Signup';
 
 function App() {
@@ -19,10 +22,10 @@ function App() {
 			<div className="content">
 				<Routes>
 					<Route path="/" element={<Dashboard />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/signup" element={<Signup />} />
-					<Route path="/blogs/:id/*" element={<BlogDetails />} />
-					<Route path="create" element={<Create />} />
+					<Route path="/signin" element={<SignIn />} />
+					<Route path="/signup" element={<SignUp />} />
+					<Route path="/blog/:id" element={<BlogDetails />}/>
+					{/* <Route path="create" element={<Create/>} /> */}
 				</Routes>
 			</div>
 		</div>
