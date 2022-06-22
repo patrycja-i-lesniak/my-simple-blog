@@ -1,46 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { signup, useAuth } from '../../config/firebaseConfig';
 
 export default function SignUp() {
-	const [ formData, setFormData ] = useState({
-		email: '',
-        firstName: '',
-        lastName: '',
-		password: '',
-	});
+	const [ loading, setLoading ] = useState(false);
+	const currentUser = useAuth();
+	const emailRef = useRef();
+	const passwordRef = useRef();
+	const firstNameRef = useRef();
+	const lastNameRef= useRef();
 
-	function handleChange(e) {
-		setFormData({...formData,[e.target.id] : e.target.value})
-        ;
+	async function handleSignup() {
+		setLoading(true);
+		try {
+		await signup(emailRef.current.value, passwordRef.current.value);
+		} catch {
+		alert("Error!");
+		}
+		setLoading(false);
+	}
 
-	}
-	function handleSubmit(e) {
-		e.preventDefault();
-		console.log(formData);
-	}
 	return (
 		<div className="container">
-			<form onSubmit={e => handleSubmit(e)} className="white">
-				<h5 className="grey-text text-darken-3">Sign In</h5>
+			{currentUser ? <p>Currently logged in as: {currentUser.email}</p>: null}
+			<div id="fields" className="white">
+				<h5 className="grey-text text-darken-3">Sign Up</h5>
 				<div className="input-field">
 					<label htmlFor="email">Email</label>
-					<input type="email" id="email" onChange={(e) => handleChange(e)} />
+					<input type="email" id="email" ref={emailRef} />
 				</div>
-                <div className="input-field">
+				<div className="input-field">
 					<label htmlFor="firstName">First Name</label>
-					<input type="text" id="firstName" onChange={(e) => handleChange(e)} />
+					<input type="text" id="firstName"  ref={firstNameRef}/>
 				</div>
-                 <div className="input-field">
+				<div className="input-field">
 					<label htmlFor="lastName">Last Name</label>
-					<input type="text" id="lastName" onChange={(e) => handleChange(e)} />
+					<input type="text" id="lastName"  ref={lastNameRef} />
 				</div>
 				<div className="input-field">
 					<label htmlFor="password">Password</label>
-					<input type="password" id="password" onChange={(e) => handleChange(e)}  />
+					<input type="password" id="password" ref={passwordRef} />
 				</div>
 				<div className="input-field">
-					<button className="btn pink lighten-1 z-depth-0">Sign Up</button>
+					<button
+						disabled={loading}
+						className="btn red darken-4 z-depth-0"
+						onClick={handleSignup}
+					>
+						Sign Up
+					</button>
 				</div>
-			</form>
+			</div>
 		</div>
 	);
 }
