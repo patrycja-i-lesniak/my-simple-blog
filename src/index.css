@@ -1,18 +1,60 @@
-/* import font*/
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-/* base styles */
+html {
+	min-height: 100vh;
+}
 
-* {
-	margin: 0;
-	font-family: Quicksand;
-	color: #333;
-	
-}
 body {
-	background-color:#F5F5F4;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	font-family: Quicksand;
+	background-color: #F5F5F4;
+	/* background: url(); 
+	background-size: 100%;
+	background-position: bottom;*/
+	min-height: 100%;
 }
-.navbar {
+
+main {
+	flex: 1 0 auto;
+}
+
+form {
+	padding: 20px;
+	margin-top: 60px;
+}
+
+form button {
+	margin: 10px 0;
+	font-weight: 600;
+}
+
+form h5 {
+	margin-bottom: 20px;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+	border-color: #b71c1c;
+	box-shadow: none;
+}
+
+footer {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+}
+
+.blog-list {
+	margin-bottom: 50px;
+}
+
+
+/* .navbar {
 	padding: 20px;
 	display: flex;
 	align-items: center;
@@ -46,8 +88,7 @@ body {
 	margin: 40px auto;
 	padding: 20px;
 }
-
-/* blog previews */
+.blog previews, 
 .blog-list{
 	display: flex;
 	flex-direction: row;
@@ -70,7 +111,7 @@ body {
 .blog-preview h3 {
 	font-size: 20px;
 	color: #f1356d;
-	/* background-color: white; */
+	 background-color: white;
 
 }
 .blog-preview a {
@@ -91,7 +132,7 @@ body {
 }
 
 
-/* create New blog form */
+// create New blog form
 .create {
 	max-width: 400px;
 	margin: 0 auto;
@@ -141,8 +182,10 @@ h2{
 }
 .read-more {
 	color:#f1356d;
+	background-color: transparent;
+	font-weight: 600;
 	font-size: 14px;
 	display: block;
 	padding-left: 20px;
 	text-align: right;	
-}
+}  */
