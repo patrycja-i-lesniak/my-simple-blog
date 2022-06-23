@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { signup, useAuth } from '../../config/firebaseConfig';
+import { signup, useAuth, logout, login } from '../../config/firebaseConfig';
 
 export default function SignUp() {
 	const [ loading, setLoading ] = useState(false);
@@ -13,12 +13,32 @@ export default function SignUp() {
 		setLoading(true);
 		try {
 		await signup(emailRef.current.value, passwordRef.current.value, firstNameRef.current.value, lastNameRef.current.value);
+		console.log('Register as:', firstNameRef.current.value, lastNameRef.current.value )
+		} catch {
+		alert("Error!");
+		}
+		setLoading(false);
+	}
+
+		async function handleLogin() {
+		setLoading(true);
+		try {
+		await login(emailRef.current.value, passwordRef.current.value);
 		console.log('Currently logged in as:', firstNameRef.current.value, lastNameRef.current.value )
 		} catch {
 		alert("Error!");
 		}
 		setLoading(false);
 	}
+
+	async function handleLogout() { 
+			setLoading(true)
+		try{
+			await logout();
+	} catch {
+		alert('Error!');
+	} 	setLoading(false)
+}
 
 	return (
 		<div className="container">
@@ -49,6 +69,16 @@ export default function SignUp() {
 					>
 						Sign Up
 					</button>
+					
+
+<button
+						disabled={loading || currentUser}
+						className="btn red darken-4 z-depth-0"
+						onClick={handleLogin}
+					>
+						Log In
+					</button>
+					<button disabled={loading || !currentUser} onClick={handleLogout}>Log Out</button>
 				</div>
 			</div>
 		</div>

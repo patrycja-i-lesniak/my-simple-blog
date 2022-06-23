@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import {
+	getAuth,
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+	onAuthStateChanged,
+	signOut
+} from 'firebase/auth';
 
 // config data
 const firebaseConfig = {
@@ -65,18 +71,25 @@ export function signup(email, password) {
 	return createUserWithEmailAndPassword(auth, email, password);
 }
 
-// Custom Hook
-export function useAuth() {
-  const [ currentUser, setCurrentUser ] = useState();
-
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
-    return unsub;
-  }, [])
-
-  return currentUser;
+export function logout() {
+	return signOut(auth);
 }
 
+export function login(email, password) {
+	return signInWithEmailAndPassword(auth, email, password);
+}
+
+// Custom Hook
+export function useAuth() {
+	const [ currentUser, setCurrentUser ] = useState();
+
+	useEffect(() => {
+		const unsub = onAuthStateChanged(auth, (user) => setCurrentUser(user));
+		return unsub;
+	}, []);
+
+	return currentUser;
+}
 
 // signInWithPopup(auth, new GoogleAuthProvider());
 
