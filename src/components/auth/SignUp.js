@@ -12,7 +12,8 @@ export default function SignUp() {
 	async function handleSignup() {
 		setLoading(true);
 		try {
-		await signup(emailRef.current.value, passwordRef.current.value);
+		await signup(emailRef.current.value, passwordRef.current.value, firstNameRef.current.value, lastNameRef.current.value);
+		console.log('Currently logged in as:', firstNameRef.current.value, lastNameRef.current.value )
 		} catch {
 		alert("Error!");
 		}
@@ -21,7 +22,7 @@ export default function SignUp() {
 
 	return (
 		<div className="container">
-			{currentUser ? <p>Currently logged in as: {currentUser.email}</p>: null}
+			{currentUser ? <p>Hello { firstNameRef.current.value} {lastNameRef.current.value}!</p>: null}
 			<div id="fields" className="white">
 				<h5 className="grey-text text-darken-3">Sign Up</h5>
 				<div className="input-field">
@@ -42,7 +43,7 @@ export default function SignUp() {
 				</div>
 				<div className="input-field">
 					<button
-						disabled={loading}
+						disabled={loading || currentUser}
 						className="btn red darken-4 z-depth-0"
 						onClick={handleSignup}
 					>

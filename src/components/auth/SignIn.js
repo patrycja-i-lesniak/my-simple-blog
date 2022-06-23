@@ -28,7 +28,7 @@ export default function SignIn() {
 					<input type="password" id="password" onChange={(e) => handleChange(e)}  />
 				</div>
 				<div className="input-field">
-					<button className="btn pink lighten-1 z-depth-0">Login</button>
+					<button className="btn red darken-4 z-depth-0">Login</button>
 				</div>
 			</form>
 		</div>
