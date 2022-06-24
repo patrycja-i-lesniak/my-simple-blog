@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { signup, useAuth, logout, login } from '../../config/firebaseConfig';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useAuth, logout } from '../../config/firebaseConfig';
 
 export default function SignedInLinks() {
 	const [ loading, setLoading ] = useState(false);
 	const currentUser = useAuth();
+	const navigate = useNavigate();
 
 	async function handleLogout() {
 		setLoading(true);
@@ -15,9 +16,10 @@ export default function SignedInLinks() {
 			alert('Error!');
 		}
 		setLoading(false);
+		navigate('/');
 	}
 	return (
-		<ul className="right hide-on-med-and-down" hidden={loading || !currentUser} >
+		<ul className="right hide-on-med-and-down" hidden={loading || !currentUser}>
 			<li>
 				<NavLink to="/create">New Blog</NavLink>
 			</li>
