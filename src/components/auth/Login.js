@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { useAuth, login } from '../../config/firebaseConfig';
+ import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
 	const [ loading, setLoading ] = useState(false);
 	const currentUser = useAuth();
 	const emailRef = useRef();
 	const passwordRef = useRef();
+	const navigate = useNavigate()
 
 	async function handleLogin() {
 		setLoading(true);
@@ -16,6 +18,7 @@ export default function Login() {
 			alert('Error!');
 		}
 		setLoading(false);
+		navigate('/');
 	}
 
 	return (
