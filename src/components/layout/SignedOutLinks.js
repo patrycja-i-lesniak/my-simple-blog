@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import { signup, useAuth, login } from '../../config/firebaseConfig';
 
 export default function SignedOutLinks() {
+	const [ loading, setLoading ] = useState(false);
+	const currentUser = useAuth();
 	return (
-		<ul className="right">
+		<ul className="right hide-on-med-and-down" hidden={loading || currentUser} >
 			<li>
-				<NavLink to="/">Signup</NavLink>
+				<NavLink to="/signup">Signup</NavLink>
 			</li>
 			<li>
-				<NavLink to="/">Login</NavLink>
+				<NavLink to="/login">Login</NavLink>
 			</li>
 		</ul>
 	);
