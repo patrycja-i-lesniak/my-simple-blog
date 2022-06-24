@@ -17,12 +17,12 @@ export default function SignedInLinks() {
 		setLoading(false);
 	}
 	return (
-		<ul className="right hide-on-med-and-down">
+		<ul className="right hide-on-med-and-down" hidden={loading || !currentUser} >
 			<li>
 				<NavLink to="/create">New Blog</NavLink>
 			</li>
 			<li>
-				<NavLink to="/" hidden={loading || !currentUser} onClick={handleLogout}>
+				<NavLink to="/" onClick={handleLogout}>
 					Log Out
 				</NavLink>
 			</li>
