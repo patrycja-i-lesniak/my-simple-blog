@@ -5,10 +5,11 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import BlogDetails from './components/blogs/BlogDetails';
-import SignIn from './components/auth/SignIn';
+import Login from './components/auth/Login';
 import SignUp from './components/auth/SignUp';
 import CreateBlog from './components/blogs/CreateBlog';
 import Footer from './components/layout/Footer';
+import Profile from './components/auth/Profile'
 // pages
 // import Home from './pages/Home';
 // import Create from './pages/Create';
@@ -23,10 +24,11 @@ function App() {
 			<div className="content">
 				<Routes>
 					<Route path="/" element={<Dashboard />} />
-					<Route path="/signin" element={<SignIn />} />
+					<Route path="/login" element={<Login />} />
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="/blog/:id" element={<BlogDetails />} />
 					<Route path="/create" element={<CreateBlog />} />
+					<Route path="/profile" element={<Profile/>} />
 				</Routes>
 			</div>
 			<Footer/>
