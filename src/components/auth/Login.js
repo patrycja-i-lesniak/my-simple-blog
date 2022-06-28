@@ -7,18 +7,18 @@ export default function Login() {
 	const currentUser = useAuth();
 	const emailRef = useRef();
 	const passwordRef = useRef();
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	async function handleLogin() {
 		setLoading(true);
 		try {
 			await login(emailRef.current.value, passwordRef.current.value);
-			console.log('Currently logged in as:');
+			console.log('Currently logged in as:', emailRef.current.value,);
 		} catch (error) {
 			alert('Error!');
 		}
 		setLoading(false);
-		navigate('/');
+		navigate('/profile');
 	}
 
 	return (
