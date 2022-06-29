@@ -30,12 +30,20 @@ export default function Profile() {
 
 	return (
 		<div className="fields container">
-			{currentUser && <p>Hello!</p>}
+			{currentUser && (
+				<p>
+					Hello <span>{currentUser.email}</span>!
+				</p>
+			)}
 			<input type="file" onChange={handleChange} />
-			<button disabled={loading || !photo} onClick={handleClick}>
+			<button
+				disabled={loading || !photo}
+				onClick={handleClick}
+				className="btn red darken-4 z-depth-0"
+			>
 				Upload
 			</button>
-			<img src={photoURL} alt="Avatar" className="avatar" />
+			<img src={photoURL} alt="Avatar" className="avatar big" />
 		</div>
 	);
 }
