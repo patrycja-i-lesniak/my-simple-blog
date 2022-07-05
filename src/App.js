@@ -9,7 +9,8 @@ import Login from './components/auth/Login';
 import SignUp from './components/auth/SignUp';
 import CreateBlog from './components/blogs/CreateBlog';
 import Footer from './components/layout/Footer';
-import Profile from './components/auth/Profile'
+import Profile from './components/auth/Profile';
+import NewPage from './components/blogs/NewPage';
 // pages
 // import Home from './pages/Home';
 // import Create from './pages/Create';
@@ -29,6 +30,7 @@ function App() {
 					<Route path="/blog/:id" element={<BlogDetails />} />
 					<Route path="/create" element={<CreateBlog />} />
 					<Route path="/profile" element={<Profile/>} />
+					<Route path="/newpage" element={<NewPage/>} />
 				</Routes>
 			</div>
 			<Footer/>
