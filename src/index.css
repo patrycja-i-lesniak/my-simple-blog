@@ -21,6 +21,7 @@ main {
 	flex: 1 0 auto;
 }
 
+
 form {
 	padding: 20px;
 	margin-top: 60px;
@@ -33,6 +34,16 @@ form button {
 
 form h5 {
 	margin-bottom: 20px;
+}
+
+ .search-form {
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+	gap: 20px;
+	width: 60%;
+	margin: 20px auto;
+	/* background-color:  */
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]),
