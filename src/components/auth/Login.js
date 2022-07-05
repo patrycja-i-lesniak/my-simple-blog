@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useAuth, login } from '../../config/firebaseConfig';
- import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
 	const [ loading, setLoading ] = useState(false);
@@ -13,7 +13,7 @@ export default function Login() {
 		setLoading(true);
 		try {
 			await login(emailRef.current.value, passwordRef.current.value);
-			console.log('Currently logged in as:', emailRef.current.value,);
+			console.log('Currently logged in as:', emailRef.current.value);
 		} catch (error) {
 			alert('Error!');
 		}
@@ -36,7 +36,7 @@ export default function Login() {
 				<div className="input-field">
 					<button
 						disabled={loading || currentUser}
-						className="btn red darken-4 z-depth-0"
+						className="btn orange z-depth-0"
 						onClick={handleLogin}
 					>
 						Log In
