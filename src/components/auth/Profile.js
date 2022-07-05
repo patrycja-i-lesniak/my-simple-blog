@@ -39,7 +39,7 @@ export default function Profile() {
 			<button
 				disabled={loading || !photo}
 				onClick={handleClick}
-				className="btn red darken-4 z-depth-0"
+				className="btn orange z-depth-0"
 			>
 				Upload
 			</button>

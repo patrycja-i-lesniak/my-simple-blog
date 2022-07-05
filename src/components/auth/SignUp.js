@@ -60,7 +60,7 @@ export default function SignUp() {
 				<div className="input-field">
 					<button
 						disabled={loading || currentUser}
-						className="btn red darken-4 z-depth-0"
+						className="btn orange z-depth-0"
 						onClick={handleSignup}
 					>
 						Sign Up
