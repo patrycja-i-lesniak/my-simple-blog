@@ -1,17 +1,16 @@
 import React, { useState, useRef } from 'react';
-import { addDoc, collection, doc } from 'firebase/firestore';
+import { addDoc, collection, doc, serverTimestamp } from 'firebase/firestore';
 import { db, colRef } from '../../config/firebaseConfig';
 import { useAuth, login } from '../../config/firebaseConfig';
+import { Button, Icon } from 'react-materialize';
 
 export default function CreateBlog() {
 	const [ formData, setFormData ] = useState({
 		title: '',
 		body: '',
 		author: ' ',
-		date: ''
+		timestamp: serverTimestamp()
 	});
-	// const currentUser = useAuth();
-	// console.log(currentUser.email)
 
 	function handleChange(e) {
 		setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -34,7 +33,7 @@ export default function CreateBlog() {
 						type="text"
 						id="title"
 						onChange={(e) => handleChange(e)}
-						minlength="5"
+						minLength="5"
 						required
 					/>
 				</div>
@@ -45,7 +44,7 @@ export default function CreateBlog() {
 						id="body"
 						className="materialize-textarea"
 						onChange={(e) => handleChange(e)}
-						minlength="100"
+						minLength="100"
 						required
 					/>
 				</div>
@@ -55,18 +54,20 @@ export default function CreateBlog() {
 						type="text"
 						id="author"
 						onChange={(e) => handleChange(e)}
-						minlength="5"
+						minLength="5"
 						required
 					/>
 				</div>
-				<div className="input-field">
-					<label htmlFor="date"> </label>
-					<input type="date" id="date" onChange={(e) => handleChange(e)} required />
-				</div>
 
-				<div className="input-field">
-					<button className="btn red darken-4 z-depth-0">Create</button>
-				</div>
+				<Button
+					node="button"
+					type="submit"
+					waves="light"
+					className="btn waves-effect waves-light orange z-depth-0"
+				>
+					Send
+					<Icon right>send</Icon>
+				</Button>
 			</form>
 		</div>
 	);
