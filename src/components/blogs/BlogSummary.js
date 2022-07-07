@@ -1,24 +1,71 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { handleEdit, handleDelete } from 'helpers';
+import { Col, Row, Card, Icon, CardTitle, Button } from 'react-materialize';
 
 export default function BlogSummary({ blog }) {
 	const navigate = useNavigate();
+
 	const handleNavigate = () => {
 		navigate('/blog/:id');
 	};
+
 	return (
-		<div className="card z-depth-0 blog-summary">
-			<div className="card-content grey-text text-darken-3">
-				<span className="card-title red-text text-darken-4">{blog.title}</span>
-				<p>{blog.author}</p>
-				<p>{blog.date}</p>
-				{blog.body.length > 200 && (
-					<p className="grey-text">{blog.body.slice(0, 200)}...</p>
-				)}
-				<button onClick={handleNavigate} className="btn red darken-4 z-depth-0">
-					Read more
-				</button>
-			</div>
+		<div>
+			<Row>
+				<Col m={12} s={12}>
+					<Card
+						key={blog.id}
+						actions={[
+							<div className="button-container">
+								<div>
+									<Button
+										onClick={handleNavigate}
+										flat
+										node="button"
+										waves="light"
+										className="btn transparent z-depth-0 orange-text text-darken-3 card-btn action-button"
+									>
+										Read more
+									</Button>
+								</div>
+								<div>
+									<Button
+										className="btn transparent z-depth-0 action-button"
+										node="button"
+										waves="light"
+										onClick={() => handleDelete(blog.id)}
+									>
+										<Icon flat className="orange-text">
+											delete
+										</Icon>
+									</Button>
+									<Button
+										className="btn transparent z-depth-0 action-button"
+										node="button"
+										waves="light"
+										onClick={() => handleEdit(blog.id)}
+									>
+										<Icon flat className="orange-text">
+											edit
+										</Icon>
+									</Button>
+								</div>
+							</div>
+						]}
+						closeIcon={<Icon>close</Icon>}
+						header={
+							<CardTitle image="https://materializecss.com/images/sample-1.jpg">
+								{blog.title}
+							</CardTitle>
+						}
+						revealIcon={<Icon>more_vert</Icon>}
+					>
+						{/* {blog.body.slice(0, 50)}... */}
+						{blog.body}...
+					</Card>
+				</Col>
+			</Row>
 		</div>
 	);
 }
