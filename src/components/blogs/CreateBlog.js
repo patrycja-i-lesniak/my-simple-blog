@@ -1,7 +1,6 @@
-import React, { useState, useRef } from 'react';
-import { addDoc, collection, doc, serverTimestamp } from 'firebase/firestore';
-import { db, colRef } from '../../config/firebaseConfig';
-import { useAuth, login } from '../../config/firebaseConfig';
+import React, { useState } from 'react';
+import { addDoc, serverTimestamp } from 'firebase/firestore';
+import {colRef } from '../../config/firebaseConfig';
 import { Button, Icon } from 'react-materialize';
 
 export default function CreateBlog() {
@@ -24,7 +23,7 @@ export default function CreateBlog() {
 	};
 
 	return (
-		<div className="container ">
+		<div className='container'>
 			<form onSubmit={(e) => handleSubmit(e)} className="white add">
 				<h5 className="grey-text text-darken-3">Create New Blog</h5>
 				<div className="input-field">
