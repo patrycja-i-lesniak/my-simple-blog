@@ -5,10 +5,9 @@ import { db } from '../config/firebaseConfig';
 		const title = prompt('enter title');
 		const body = prompt('enter body');
 		const author = prompt('enter author');
-		const date = prompt('enter date');
 
 		const docRef = doc(db, 'blogs', id);
-		const payload = { title, body, date, author };
+		const payload = { title, body, author };
 
 		setDoc(docRef, payload);
 	};
