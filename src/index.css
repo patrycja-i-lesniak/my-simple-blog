@@ -15,6 +15,9 @@ body {
 	background-size: 100%;
 	background-position: bottom;*/
 	min-height: 100%;
+	overscroll-behavior: none;
+	word-break: break-word;
+	word-wrap: break-word;
 }
 
 main {
@@ -91,9 +94,9 @@ button {
 	font-weight: 600;
 }
 
-.search-box {
+/* .search-box {
 	width: 80%;
-}
+} */
 
 
 /* .cards-container {
@@ -131,10 +134,6 @@ button {
 
 .text-center {
 	text-align: center;
-}
-
-.card {
-	width: 45;
 }
 
 .card-btn {
