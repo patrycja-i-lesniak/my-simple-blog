@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 // components
 import {
 	Navbar,
-	Dashboard,
 	BlogDetails,
 	Login,
 	SignUp,
@@ -12,8 +11,11 @@ import {
 	Footer,
 	Profile,
 	NewPage,
-	SearchBox
+	SearchBox,
+	BlogList
 } from 'components';
+
+
 
 function App() {
 	return (
@@ -22,7 +24,7 @@ function App() {
 			<SearchBox />
 			<div className="content">
 				<Routes>
-					<Route path="/" element={<Dashboard />} />
+					<Route path="/" element={<BlogList />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="/blog/:id" element={<BlogDetails />} />
