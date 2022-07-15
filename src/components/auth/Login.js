@@ -1,48 +1,69 @@
-import React, { useState, useRef } from 'react';
-import { useAuth, login } from '../../config/firebaseConfig';
+import React, { useState, useEffect } from 'react';
+import { auth, logInWithEmailAndPassword } from 'config/firebaseConfig';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap';
 
 export default function Login() {
-	const [ loading, setLoading ] = useState(false);
-	const currentUser = useAuth();
-	const emailRef = useRef();
-	const passwordRef = useRef();
+	const [ email, setEmail ] = useState('');
+	const [ password, setPassword ] = useState('');
+	const [ user, loading, error ] = useAuthState(auth);
 	const navigate = useNavigate();
 
-	async function handleLogin() {
-		setLoading(true);
-		try {
-			await login(emailRef.current.value, passwordRef.current.value);
-			console.log('Currently logged in as:', emailRef.current.value);
-		} catch (error) {
-			alert('Error!');
-		}
-		setLoading(false);
-		navigate('/profile');
-	}
+	useEffect(
+		() => {
+			if (error) {
+				console.log(error.message);
+			}
+			if (loading) {
+				// loader
+				return;
+			}
+			if (user) {
+				console.log('Signed In User', user.email);
+				navigate('/');
+			}
+		},
+		[ user, loading, error, navigate ]
+	);
 
 	return (
-		<div className="container">
-			<div id="fields" className="white">
-				<h5 className="grey-text text-darken-3">Login</h5>
-				<div className="input-field">
-					<label htmlFor="email">Email</label>
-					<input type="email" id="email" ref={emailRef} />
-				</div>
-				<div className="input-field">
-					<label htmlFor="password">Password</label>
-					<input type="password" id="password" ref={passwordRef} />
-				</div>
-				<div className="input-field">
-					<button
-						disabled={loading || currentUser}
-						className="btn orange z-depth-0"
-						onClick={handleLogin}
+		<div className="form-container">
+			<h5>Login</h5>
+
+			<Form>
+				<Form.Group className="mb-3" controlId="email">
+					<Form.Label>Email address</Form.Label>
+					<Form.Control
+						type="email"
+						placeholder="Enter email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+					/>
+					<Form.Text className="text-muted">
+						We'll never share your email with anyone else.
+					</Form.Text>
+				</Form.Group>
+
+				<Form.Group className="mb-3" controlId="password">
+					<Form.Label>Password</Form.Label>
+					<Form.Control
+						type="password"
+						placeholder="Enter password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+				</Form.Group>
+
+				<Form.Group className="d-grid d-md-flex justify-content-md-end">
+					<Button
+						variant="info"
+						onClick={() => logInWithEmailAndPassword(email, password)}
 					>
-						Log In
-					</button>
-				</div>
-			</div>
+						Login
+					</Button>
+				</Form.Group>
+			</Form>
 		</div>
 	);
 }
