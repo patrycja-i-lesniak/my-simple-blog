@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 // components
 import {
-	Navbar,
+	NavBar,
 	BlogDetails,
 	Login,
 	SignUp,
@@ -12,16 +12,21 @@ import {
 	Profile,
 	NewPage,
 	SearchBox,
-	BlogList
+	BlogList,
+	Dashboard
 } from 'components';
 
-
-
 function App() {
+	const [ isVisible, setIsVisible ] = useState(true);
+
+	function toggleIsVisible() {
+		setIsVisible(!isVisible);
+	}
 	return (
 		<div className="App">
-			<Navbar />
-			<SearchBox />
+			<NavBar toggleIsVisible={toggleIsVisible} isVisible={isVisible} />
+			{!isVisible && <SearchBox isVisible={isVisible} toggleIsVisible={toggleIsVisible} />}
+			{/* <Dashboard/> */}
 			<div className="content">
 				<Routes>
 					<Route path="/" element={<BlogList />} />
