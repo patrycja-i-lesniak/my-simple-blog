@@ -1,13 +1,22 @@
 import { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore';
+import {
+	getFirestore,
+	collection,
+	getDocs,
+	addDoc
+	//  query, orderBy, limit
+	//  addDoc, deleteDoc, doc
+} from 'firebase/firestore';
 import {
 	getAuth,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	onAuthStateChanged,
-	signOut
+	signOut,
+	updateProfile
 } from 'firebase/auth';
+import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 
 // config data
 const firebaseConfig = {
@@ -21,9 +30,11 @@ const firebaseConfig = {
 
 // init firebase app
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const storage = getStorage();
 
 // init services
-const db = getFirestore(app);
+ const db = getFirestore();
 
 // collection ref
 const colRef = collection(db, 'blogs');
@@ -35,53 +46,52 @@ getDocs(colRef)
 		snapshot.docs.forEach((doc) => {
 			blogs.push({ ...doc.data(), id: doc.id });
 		});
-		console.log(blogs);
 	})
 	.catch((err) => {
 		console.log(err.message);
 	});
 
-//adding documents
-// const addBlogForm = document.querySelector('.add');
-// addBlogForm.addEventListener('submit', (e) => {
-// 	e.preventDefault();
-// 	addDoc(colRef, {
-// 		title: addBlogForm.title.value,
-// 		body: addBlogForm.body.value,
-// 		author: addBlogForm.author.value
-// 	}).then(() => {
-// 		addBlogForm.reset();
-// 	});
-// });
+// Signup
+ const signUpWithEmailAndPassword = async (email, password, firstname, lastname) => {
+	try {
+		const res = await createUserWithEmailAndPassword(auth, email, password);
+		const user = res.user;
+		await addDoc(collection(db, 'users'), {
+			uid: user.uid,
+			firstname,
+			lastname,
+			authProvider: 'local',
+			email
+		});
+		console.log('Witaj',firstname);
+	} catch (err) {
+		console.error(err);
+		alert(err.message);
+	}
+};
 
-// deleting documents
-// const deleteBlogForm = document.querySelector('.delete');
-// deleteBlogForm.addEventListener('submit', (e) => {
-// 	e.preventDefault();
-// 	const docRef = doc(db, 'blogs', deleteBlogForm.id.value);
-
-// 	deleteDoc(docRef).then(() => {
-// 		deleteBlogForm.reset();
-// 	});
-// });
-
-const auth = getAuth();
-
-export function signup(email, password) {
-	return createUserWithEmailAndPassword(auth, email, password);
-}
-
-export function logout() {
+// Logout
+ function logout() {
 	return signOut(auth);
 }
 
-export function login(email, password) {
-	return signInWithEmailAndPassword(auth, email, password);
-}
+// Login
+const logInWithEmailAndPassword = async (email, password) => {
+	try {
+		await signInWithEmailAndPassword(auth, email, password);
+	} catch (err) {
+		console.error(err);
+		alert(err.message);
+	}
+};
 
 // Custom Hook
 export function useAuth() {
 	const [ currentUser, setCurrentUser ] = useState();
+	// if (user) {
+	// 		const uid = user.uid;
+	// 		console.log('userID', uid)
+	// 	}
 
 	useEffect(() => {
 		const unsub = onAuthStateChanged(auth, (user) => setCurrentUser(user));
@@ -91,8 +101,29 @@ export function useAuth() {
 	return currentUser;
 }
 
-// signInWithPopup(auth, new GoogleAuthProvider());
+// Storage
+async function upload(file, currentUser, setLoading) {
+	const fileRef = ref(storage, currentUser.uid + '.png');
 
-// onSnapshot(colRef, snapshot => {
-// 	const blog= snapshot.data();
-// })
+	setLoading(true);
+
+	const snapshot = await uploadBytes(fileRef, file);
+	const photoURL = await getDownloadURL(fileRef);
+
+	updateProfile(currentUser, { photoURL });
+
+	setLoading(false);
+	alert('Uploaded file!');
+}
+
+export {
+  auth,
+  db,
+  logInWithEmailAndPassword,
+//   signInWithGoogle,
+  signUpWithEmailAndPassword,
+//   sendPasswordReset,
+  logout,
+  colRef,
+  upload,
+};
