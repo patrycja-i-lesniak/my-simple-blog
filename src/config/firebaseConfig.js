@@ -14,18 +14,20 @@ import {
 	signInWithEmailAndPassword,
 	onAuthStateChanged,
 	signOut,
-	updateProfile
+	updateProfile,
+	setPersistence,
+	browserSessionPersistence
 } from 'firebase/auth';
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 
 // config data
 const firebaseConfig = {
-	apiKey: 'AIzaSyCPB3Xg3bgSLrPm0rNrk8w5zfB0exzYv_U',
-	authDomain: 'awesome-blog-60fb3.firebaseapp.com',
-	projectId: 'awesome-blog-60fb3',
-	storageBucket: 'awesome-blog-60fb3.appspot.com',
-	messagingSenderId: '274346911860',
-	appId: '1:274346911860:web:fd86765a5c494b2cabc921'
+	apiKey: process.env.REACT_APP_FIREBASE_KEY,
+	authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+	projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+	storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+	messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
+	appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
 // init firebase app
@@ -33,8 +35,36 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const storage = getStorage();
 
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+// // setPersistance
+// setPersistence(auth, browserSessionPersistence)
+// 	.then(() => {
+// 		return signInWithEmailAndPassword(auth)
+// 	})
+// 	.catch((error) => {
+// 		// Handle Errors here.
+// 		const errorCode = error.code;
+// 		const errorMessage = error.message;
+// 	});
+
+// Logout
+function logout() {
+	return signOut(auth);
+}
+
 // init services
- const db = getFirestore();
+const db = getFirestore();
 
 // collection ref
 const colRef = collection(db, 'blogs');
@@ -51,8 +81,11 @@ getDocs(colRef)
 		console.log(err.message);
 	});
 
+
+
 // Signup
- const signUpWithEmailAndPassword = async (email, password, firstname, lastname) => {
+
+const signUpWithEmailAndPassword = async (email, password, firstname, lastname) => {
 	try {
 		const res = await createUserWithEmailAndPassword(auth, email, password);
 		const user = res.user;
@@ -63,19 +96,15 @@ getDocs(colRef)
 			authProvider: 'local',
 			email
 		});
-		console.log('Witaj',firstname);
+		console.log('Witaj', firstname);
 	} catch (err) {
 		console.error(err);
 		alert(err.message);
 	}
 };
 
-// Logout
- function logout() {
-	return signOut(auth);
-}
-
 // Login
+setPersistence(auth, browserSessionPersistence)
 const logInWithEmailAndPassword = async (email, password) => {
 	try {
 		await signInWithEmailAndPassword(auth, email, password);
@@ -117,13 +146,13 @@ async function upload(file, currentUser, setLoading) {
 }
 
 export {
-  auth,
-  db,
-  logInWithEmailAndPassword,
-//   signInWithGoogle,
-  signUpWithEmailAndPassword,
-//   sendPasswordReset,
-  logout,
-  colRef,
-  upload,
+	auth,
+	db,
+	logInWithEmailAndPassword,
+	//   signInWithGoogle,
+	signUpWithEmailAndPassword,
+	//   sendPasswordReset,
+	logout,
+	colRef,
+	upload
 };
