@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth, upload } from '../../config/firebaseConfig';
+import { Button, Form } from 'react-bootstrap';
 
 export default function Profile() {
 	const currentUser = useAuth();
@@ -18,6 +19,7 @@ export default function Profile() {
 	function handleClick() {
 		upload(photo, currentUser, setLoading);
 	}
+	
 
 	useEffect(
 		() => {
@@ -28,21 +30,21 @@ export default function Profile() {
 		[ currentUser ]
 	);
 
+console.log(photoURL);
+
 	return (
 		<div className="fields container">
 			{currentUser && (
 				<p>
 					Hello <span>{currentUser.email}</span>!
 				</p>
+				
 			)}
+
 			<input type="file" onChange={handleChange} />
-			<button
-				disabled={loading || !photo}
-				onClick={handleClick}
-				className="btn orange z-depth-0"
-			>
+			<Button disabled={loading || !photo} onClick={handleClick} variant="btn btn-secondary">
 				Upload
-			</button>
+			</Button>
 			<img src={photoURL} alt="Avatar" className="avatar big" />
 		</div>
 	);
