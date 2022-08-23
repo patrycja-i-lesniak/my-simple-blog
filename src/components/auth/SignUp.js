@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Form, Button } from "react-bootstrap";
 
-import { app, auth } from "../../config/firebase";
+import { auth, user } from "../../config/firebase";
 
 export default function SignUp() {
   const [data, setData] = useState({});
@@ -17,20 +17,20 @@ export default function SignUp() {
   };
 
   //Signup
-  const handleSignup = () => {
+  const handleSignup = (e) => {
+    e.preventDefault();
     setLoading(true);
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((response) => {
         console.log(response.user);
+        navigate("/profile");
       })
       .catch((err) => {
         alert(err.message);
+        console.log(err.code);
       });
     setLoading(false);
-
-    navigate("/profile");
   };
-
   return (
     <div className="form-container">
       <h5 className="grey-text text-darken-3">Sign Up</h5>
@@ -67,7 +67,12 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group className="d-grid d-md-flex justify-content-md-end">
-          <Button variant="info" type="submit" onClick={handleSignup}>
+          <Button
+            variant="info"
+            type="submit"
+            onClick={(e) => handleSignup(e)}
+            disabled={loading || user}
+          >
             Sign up
           </Button>
         </Form.Group>
