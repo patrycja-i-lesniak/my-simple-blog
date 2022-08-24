@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Form, Button } from "react-bootstrap";
 
-import { auth, user } from "../../config/firebase";
+import { auth } from "../../config/firebase";
 
 export default function SignUp() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const user = auth.currentUser;
 
   const handleInput = (e) => {
     let newInput = { [e.target.name]: e.target.value };
@@ -31,6 +32,7 @@ export default function SignUp() {
       });
     setLoading(false);
   };
+
   return (
     <div className="form-container">
       <h5 className="grey-text text-darken-3">Sign Up</h5>
@@ -71,7 +73,7 @@ export default function SignUp() {
             variant="info"
             type="submit"
             onClick={(e) => handleSignup(e)}
-            disabled={loading || user}
+            disabled={loading || !user}
           >
             Sign up
           </Button>
