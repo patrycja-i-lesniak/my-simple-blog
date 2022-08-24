@@ -17,7 +17,7 @@ export default function SignUp() {
     setData({ ...data, ...newInput });
   };
 
-  //Signup
+  //Sign up
   const handleSignup = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -73,7 +73,7 @@ export default function SignUp() {
             variant="info"
             type="submit"
             onClick={(e) => handleSignup(e)}
-            disabled={loading || !user}
+            disabled={loading || user}
           >
             Sign up
           </Button>
