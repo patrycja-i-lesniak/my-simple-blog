@@ -1,14 +1,14 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useAuth } from '../../config/firebaseConfig';
-import { Nav } from 'react-bootstrap';
+import React from "react";
+import { Nav } from "react-bootstrap";
+import { auth, user } from "../../config/firebase";
 
 export default function SignedOutLinks() {
-	const currentUser = useAuth();
-	return (
-		<Nav className="me-auto" hidden={currentUser}>
-			<Nav.Link href="/signup">Signup</Nav.Link>
-			<Nav.Link href="/login">Login</Nav.Link>
-		</Nav>
-	);
+  const user = auth.currentUser;
+
+  return (
+    <Nav className="me-auto" hidden={user}>
+      <Nav.Link href="/signup">Signup</Nav.Link>
+      <Nav.Link href="/login">Login</Nav.Link>
+    </Nav>
+  );
 }
