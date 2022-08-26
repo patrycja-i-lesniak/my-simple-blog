@@ -32,28 +32,16 @@ ul.nav {
 	justify-content: center;
 }
 
-a.nav-link {
+.menu a.nav-link, .submenu a.nav-link {
 	text-transform: uppercase;
 	color: black;
 	font-size: 14px;
 	align-items: center;
 }
 
-footer {
-	margin-top: auto;
-	width: 100%;
-	height: 40px;
-	bottom: 0;
-	z-index: 999;
-	text-align: center;
-	padding: 40px;
+.footer a.nav-link {
 	color: grey;
-}
-
-.github {
-	color: grey;
-	font-size: 16px;
-	padding: 0 20px;
+	align-items: center;
 }
 
 .box-container {
@@ -72,6 +60,10 @@ footer {
 	max-width: 60vw;
 	margin: 30px auto;
 	border-radius: 3px;
+	width: 70%;
+	max-width: 800px;
+
+
 }
 
 .alert-container {
@@ -114,11 +106,11 @@ footer {
 	border: none;
 	display: flex;
 	flex-direction: row;
-
+	align-items: center
 }
 
 .search-icon {
-	font-size: 18px;
+	font-size: 22px;
 	margin: 0 20px;
 	color: #717171;
 }
@@ -132,15 +124,11 @@ footer {
 	color: grey;
 }
 
-
-
-
 a.header {
 	color: #151515;
 	font-size: 36px;
 	font-weight: bold;
 	letter-spacing: 1.8px;
-
 }
 
 div h5 {
@@ -170,9 +158,9 @@ div h5 {
 }
 
 .big {
-	width: 150px;
-	height: 150px;
-	margin-left: 50px
+	width: 120px;
+	height: 120px;
+	/* margin-left: 50px */
 }
 
 span {
@@ -206,4 +194,70 @@ button {
 .action-button {
 	margin: 0;
 	padding: 0 0 0 20px;
+}
+
+.fields-container {
+	display: flex;
+	flex-direction: column;
+	margin: 50px auto;
+	align-items: center;
+}
+
+.profile-container {
+	display: flex;
+	min-width: 500px;
+	justify-content: space-between;
+}
+
+.profile-container-left {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.alert {
+	max-width: 50%;
+	margin: 50px auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@media (max-width: 768px) {
+	.alert {
+		max-width: 80%;
+		margin: 50px auto;
+	}
+}
+
+@media (max-width: 576px) {
+	a.header {
+		font-size: 20px;
+	}
+
+	.big {
+		margin: 0
+	}
+
+	.form-container {
+		width: 100%;
+		padding: 30px;
+	}
+
+	.profile-container {
+		flex-direction: column;
+		gap: 20px;
+		align-items: center
+	}
+
+	.search-form {
+		margin: 0 10px;
+	}
+
+	.footer a.nav-link {
+		font-size: 14px;
+
+	}
+
+
 }
