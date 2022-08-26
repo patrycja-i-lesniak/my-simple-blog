@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { Form, Button, Alert } from "react-bootstrap";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
-import { auth } from "../../config/firebase";
+import { auth, useAuth } from "../../config/firebase";
 
 export default function Login() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
-  const user = auth.currentUser;
+  const currentUser = useAuth();
 
   let googleProvider = new GoogleAuthProvider();
 
@@ -57,9 +57,7 @@ export default function Login() {
       {error ? (
         <Alert variant="danger" className="alert">
           <Alert.Heading>Error!</Alert.Heading>
-          <hr />
           <p>Invalid login or password.</p>
-          <hr />
           <div className="d-flex justify-content-end">
             <Button variant="outline-danger" onClick={() => setError(false)}>
               Back to login page
@@ -99,7 +97,7 @@ export default function Login() {
               </Form.Text>
             </Form.Group>
             <Form.Group className="d-grid d-md-flex justify-content-md-end">
-              <Button variant="info" type="submit" disabled={user} onClick={(e) => handleLogin(e)}>
+              <Button variant="info" type="submit" disabled={currentUser} onClick={(e) => handleLogin(e)}>
                 Log in
               </Button>
             </Form.Group>{" "}
