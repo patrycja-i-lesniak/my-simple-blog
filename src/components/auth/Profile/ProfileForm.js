@@ -64,6 +64,7 @@ export default function ProfileForm() {
                 type="text"
                 name="displayName"
                 required
+                minLength='5'
                 placeholder="Enter user name"
                 onChange={(e) => handleInput(e)}
               />
