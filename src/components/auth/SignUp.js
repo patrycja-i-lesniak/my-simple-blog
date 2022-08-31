@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Form, Button } from "react-bootstrap";
 
-import { auth } from "../../config/firebase";
+import { auth, createUser } from "config/firebase";
+import { addUserData} from "config/firestore";
 
 export default function SignUp() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const user = auth.currentUser;
 
   const handleInput = (e) => {
     let newInput = { [e.target.name]: e.target.value };
@@ -21,15 +20,8 @@ export default function SignUp() {
   const handleSignup = (e) => {
     e.preventDefault();
     setLoading(true);
-    createUserWithEmailAndPassword(auth, data.email, data.password)
-      .then((response) => {
-        console.log(response.user);
-        navigate("/profile");
-      })
-      .catch((err) => {
-        alert(err.message);
-        console.log(err.code);
-      });
+    addUserData(data);
+    createUser(data, navigate);
     setLoading(false);
   };
 
@@ -69,12 +61,7 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group className="d-grid d-md-flex justify-content-md-end">
-          <Button
-            variant="info"
-            type="submit"
-            onClick={(e) => handleSignup(e)}
-            disabled={loading || user}
-          >
+          <Button variant="info" type="submit" onClick={(e) => handleSignup(e)}>
             Sign up
           </Button>
         </Form.Group>
