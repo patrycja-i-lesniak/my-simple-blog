@@ -66,6 +66,7 @@ ul.nav {
 
 }
 
+
 .alert-container {
 	background: rgb(230, 247, 248);
 	padding: 50px;
@@ -160,7 +161,6 @@ div h5 {
 .big {
 	width: 120px;
 	height: 120px;
-	/* margin-left: 50px */
 }
 
 span {
@@ -171,6 +171,10 @@ span {
 button {
 	margin: 20px 20px 0 0;
 	font-weight: 600;
+}
+
+form, form .button {
+	margin: 20px 0 0;
 }
 
 .card .card-title {
