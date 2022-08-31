@@ -25,14 +25,13 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     signInWithEmailAndPassword(auth, data.email, data.password)
-      .then((userCredential) => {
-        console.log("User credentials: ", userCredential.user);
-        navigate("/profile");
-      })
-      .catch((err) => {
-        setError(err.message);
-        console.log(err.code);
-      });
+       .then((userCredential) => {
+         navigate("/profile");
+       })
+       .catch((err) => {
+         setError(err.message);
+         console.log(err.code);
+       });
     setLoading(false);
   };
 
