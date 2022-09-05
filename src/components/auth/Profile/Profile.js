@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, Spinner } from "react-bootstrap";
 
-import { Button, Form } from "react-bootstrap";
-
-import { auth, useAuth } from "config/firebase";
-import ProfileForm from "./ProfileForm";
+import { useAuth } from "config/firebase";
 import ProfileHeader from "./ProfileHeader";
 
 export default function Profile() {
@@ -19,10 +17,17 @@ export default function Profile() {
 
   return (
     <div className="fields-container">
+      {loading && (
+        <>
+          <Spinner animation="grow" variant="info">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </>
+      )}
       <ProfileHeader />
       {!currentUser && (
         <div className="fields-container">
-          <p>Strona dostępna tylko po zalogowaniu</p>
+          <p>That page is available only after logging in.</p>
           <Button variant="btn btn-info" onClick={handleSubmit}>
             Go to login page
           </Button>
