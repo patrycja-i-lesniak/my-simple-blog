@@ -10,10 +10,10 @@ import {
 	CreateBlog,
 	Footer,
 	Profile,
-	NewPage,
+	// NewPage,
 	SearchBox,
 	BlogList,
-	Dashboard
+  Contact
 } from 'components';
 
 function App() {
@@ -23,24 +23,26 @@ function App() {
 		setIsVisible(!isVisible);
 	}
 	return (
-		<div className="App">
-			<NavBar toggleIsVisible={toggleIsVisible} isVisible={isVisible} />
-			{!isVisible && <SearchBox isVisible={isVisible} toggleIsVisible={toggleIsVisible} />}
-			{/* <Dashboard/> */}
-			<div className="content">
-				<Routes>
-					<Route path="/" element={<BlogList />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/signup" element={<SignUp />} />
-					<Route path="/blog/:id" element={<BlogDetails />} />
-					<Route path="/create" element={<CreateBlog />} />
-					<Route path="/profile" element={<Profile />} />
-					<Route path="/newpage" element={<NewPage />} />
-				</Routes>
-			</div>
-			<Footer />
-		</div>
-	);
+    <div className="App">
+      <NavBar toggleIsVisible={toggleIsVisible} isVisible={isVisible} />
+      {!isVisible && <SearchBox isVisible={isVisible} toggleIsVisible={toggleIsVisible} />}
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<BlogList />} />
+          <Route path="/home" element={<BlogList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/blog/:id" element={<BlogDetails />} />
+          <Route path="/create" element={<CreateBlog />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/contact" element={<Contact />} />
+
+          {/* <Route path="/newpage" element={<NewPage />} /> */}
+        </Routes>
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

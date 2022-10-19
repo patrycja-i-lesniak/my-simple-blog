@@ -11,6 +11,8 @@ export { default as Slider } from "./layout/Slider";
 export { default as ActionForm } from "./layout/ActionForm";
 export { default as GoogleLoginForm } from "./layout/GoogleLoginForm";
 export {default as AlertPopup} from './layout/AlertPopup';
+export {default as Mailto} from './layout/Mailto';
+export {default as Contact} from './layout/Contact';
 
 export { default as BlogDetails } from "./blogs/BlogDetails";
 export { default as CreateBlog } from "./blogs/CreateBlog";
