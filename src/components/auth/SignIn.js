@@ -2,10 +2,10 @@ import React from "react";
 
 import { ActionForm, GoogleLoginForm } from "components";
 
-export default function Login() {
+export default function SignIn() {
   return (
       <div className="form-container">
-        <ActionForm text="Log in" />
+        <ActionForm text="Sign in" />
         <GoogleLoginForm />
       </div>
   );
