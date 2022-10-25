@@ -1,47 +1,34 @@
-import React, { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from "react";
+import { Route, Routes, Outlet } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 // components
-import {
-	NavBar,
-	BlogDetails,
-	Login,
-	SignUp,
-	CreateBlog,
-	Footer,
-	Profile,
-	// NewPage,
-	SearchBox,
-	BlogList,
-  Contact
-} from 'components';
+import { NotFoundPage, SignUp, Footer, SearchBox, Submenu, MainMenu } from "components";
+import { Home, About, Contact } from "pages";
+import { BlogRoutes, SignInRoutes } from "routes";
 
 function App() {
-	const [ isVisible, setIsVisible ] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
 
-	function toggleIsVisible() {
-		setIsVisible(!isVisible);
-	}
-	return (
-    <div className="App">
-      <NavBar toggleIsVisible={toggleIsVisible} isVisible={isVisible} />
+  function toggleIsVisible() {
+    setIsVisible(!isVisible);
+  }
+  return (
+    <>
+      <MainMenu />
       {!isVisible && <SearchBox isVisible={isVisible} toggleIsVisible={toggleIsVisible} />}
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<BlogList />} />
-          <Route path="/home" element={<BlogList />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/blog/:id" element={<BlogDetails />} />
-          <Route path="/create" element={<CreateBlog />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/contact" element={<Contact />} />
-
-          {/* <Route path="/newpage" element={<NewPage />} /> */}
-        </Routes>
-      </div>
+      <Submenu />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blogs/*" element={<BlogRoutes />} />
+        <Route path="/signin/*" element={<SignInRoutes />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      <Outlet />
       <Footer />
-    </div>
+    </>
   );
 }
 
