@@ -27,13 +27,13 @@ export default function ActionForm({ text }) {
     setLoading(false);
   };
 
-  // Login
+  // Sign in
   const handleLogin = (e) => {
     e.preventDefault();
     setLoading(true);
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
-        navigate("/profile");
+        navigate("/signin/profile");
       })
       .catch((err) => {
         setError(true);
@@ -44,7 +44,7 @@ export default function ActionForm({ text }) {
   };
 
   const onClickAction = (e) => {
-    if (text === "Log in") {
+    if (text === "Sign in") {
       handleLogin(e);
     } else if (text === "Sign up") {
       handleSignup(e);
