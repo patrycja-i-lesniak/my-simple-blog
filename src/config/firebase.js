@@ -3,7 +3,6 @@ import { initializeApp } from "firebase/app";
 import {
   getAuth,
   onAuthStateChanged,
-  updateProfile,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 
@@ -27,7 +26,7 @@ function createUser(data, navigate) {
   createUserWithEmailAndPassword(auth, data.email, data.password)
     .then((response) => {
       console.log("Response user: ", response.user);
-      navigate("/profile");
+      navigate("/signin/profile");
     })
     .catch((err) => {
       console.log(err.code);
@@ -42,10 +41,6 @@ function useAuth() {
     const unsub = onAuthStateChanged(auth, (user) => setUser(user));
     return unsub;
   }, []);
-  if (user) {
-    const uid = user.uid;
-    // console.log("Currently signed-in user : ", user.email);
-  }
 
   return user;
 }
