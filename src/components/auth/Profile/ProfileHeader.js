@@ -19,7 +19,7 @@ export default function ProfileHeader() {
   }, [currentUser]);
  
   function toggleIsVisible() {
-    setIsVisible(!isVisible);
+    setIsVisible(true);
   }
 
   return (

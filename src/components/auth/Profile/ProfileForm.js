@@ -10,7 +10,7 @@ export default function ProfileForm({ setIsVisible }) {
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(false);
   const [isFormVisible, setFormVisible] = useState(true);
-
+  const currentUser = useAuth();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -19,9 +19,8 @@ export default function ProfileForm({ setIsVisible }) {
     timestamp: serverTimestamp(),
   });
 
-  const currentUser = useAuth();
-
   function handleFileChange(e) {
+    e.preventDefault();
     const photo = e.target.files[0];
     if (photo) {
       setPhoto(photo);
@@ -29,6 +28,7 @@ export default function ProfileForm({ setIsVisible }) {
   }
 
   function handleInputChange(e) {
+    e.preventDefault();
     const displayName = { [e.target.name]: e.target.value };
 
     setUser({ ...user, ...displayName });
@@ -38,7 +38,7 @@ export default function ProfileForm({ setIsVisible }) {
     e.preventDefault();
     updateUserData(photo, currentUser, setLoading, user);
     setFormVisible(!isFormVisible);
-    setIsVisible(true)
+    setIsVisible(false);
     setAlert(true);
   }
 
