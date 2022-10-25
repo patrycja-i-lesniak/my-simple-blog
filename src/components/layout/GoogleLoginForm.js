@@ -19,7 +19,7 @@ export default function GoogleLoginForm() {
     signInWithPopup(auth, googleProvider)
       .then((userCredential) => {
         console.log(userCredential.user);
-        navigate("/profile");
+        navigate("/signin/profile");
       })
       .catch((err) => {
         setError(err.message);
@@ -31,7 +31,7 @@ export default function GoogleLoginForm() {
   return (
     <Form>
       <Form.Group>
-        <Form.Label>Log in with</Form.Label>
+        <Form.Label>Sign in with</Form.Label>
         <Image
           type="button"
           className="svg"
