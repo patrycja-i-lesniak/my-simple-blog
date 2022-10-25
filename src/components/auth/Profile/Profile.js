@@ -12,7 +12,7 @@ export default function Profile() {
   const navigate = useNavigate();
 
   function handleSubmit() {
-    navigate("/login");
+    navigate("/signin");
   }
 
   return (
