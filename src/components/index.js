@@ -21,4 +21,4 @@ export { default as BlogDetails } from "./blogs/BlogDetails";
 export { default as BlogCard } from "./blogs/BlogCard";
 export { default as CreateBlog } from "./blogs/CreateBlog";
 export { default as BlogList } from "./blogs/BlogList";
-export { default as NewPage } from "./blogs/NewPage";
+
