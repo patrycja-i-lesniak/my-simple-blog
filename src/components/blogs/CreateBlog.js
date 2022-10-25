@@ -1,73 +1,96 @@
-import React, { useState } from 'react';
-import { addDoc, serverTimestamp } from 'firebase/firestore';
-import {colRef } from '../../config/firebaseConfig';
-import { Button, Icon } from 'react-materialize';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { addDoc, serverTimestamp } from "firebase/firestore";
+import { app, db, blogRef, storage } from "../../config/firebaseConfig";
+import { Button, Form } from "react-bootstrap";
+import { IoMdSend } from "react-icons/io";
+import { useAuth, upload } from "../../config/firebaseConfig";
 
-export default function CreateBlog() {
-	const [ formData, setFormData ] = useState({
-		title: '',
-		body: '',
-		author: ' ',
-		timestamp: serverTimestamp()
-	});
+export default function CreateRecipe() {
+  const currentUser = useAuth();
+  const [formData, setFormData] = useState({
+    title: "",
+    body: "",
+    author: "",
+    photo: "",
+    timestamp: serverTimestamp(),
+  });
+  const [photoURL, setPhotoURL] = useState(null);
+  const [fileURL, setFileURL] = useState(null);
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-	function handleChange(e) {
-		setFormData({ ...formData, [e.target.id]: e.target.value });
-	}
+  const onFileChange = async (e) => {
+    const file = e.target.file[0];
+    const storageRef = app.storage().ref();
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		const docRef = await addDoc(colRef, formData);
-		setFormData(e.target.reset());
-		console.log(`New article with ID ${docRef.id} added`);
-	};
+    const fileRef = storageRef.child(file.name);
+    await fileRef.put(file);
+    setFileURL(await fileRef.getDownloadURL());
+  };
 
-	return (
-		<div className='container'>
-			<form onSubmit={(e) => handleSubmit(e)} className="white add">
-				<h5 className="grey-text text-darken-3">Create New Blog</h5>
-				<div className="input-field">
-					<label htmlFor="title">Title</label>
-					<input
-						type="text"
-						id="title"
-						onChange={(e) => handleChange(e)}
-						minLength="5"
-						required
-					/>
-				</div>
-				<div className="input-field">
-					<label htmlFor="body">Blog text</label>
-					<textarea
-						type="text"
-						id="body"
-						className="materialize-textarea"
-						onChange={(e) => handleChange(e)}
-						minLength="100"
-						required
-					/>
-				</div>
-				<div className="input-field">
-					<label htmlFor="author">Author</label>
-					<input
-						type="text"
-						id="author"
-						onChange={(e) => handleChange(e)}
-						minLength="5"
-						required
-					/>
-				</div>
+  function handleClick() {
+    upload(formData, currentUser, setLoading);
+  }
 
-				<Button
-					node="button"
-					type="submit"
-					waves="light"
-					className="btn waves-effect waves-light orange z-depth-0"
-				>
-					Send
-					<Icon right>send</Icon>
-				</Button>
-			</form>
-		</div>
-	);
+  function handleChange(e) {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  }
+
+  // useEffect(
+  // 	() => {
+  // 		if (currentUser && currentUser.photoURL) {
+  // 			setPhotoURL(currentUser.photoURL);
+  // 		}
+  // 	},
+  // 	[ currentUser ]
+  // );
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const docRef = await addDoc(blogRef, formData);
+
+    setFormData(e.target.reset());
+    console.log(`New article with ID ${docRef.id} added`);
+    navigate("/");
+  };
+
+  return (
+    <div className="form-container">
+      <Form onSubmit={(e) => handleSubmit(e)}>
+        <h5>Create New Blog</h5>
+        <Form.Group className="mb-3" controlId="title">
+          <Form.Label>Title</Form.Label>
+          <Form.Control type="text" onChange={(e) => handleChange(e)} minLength="5" required />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="body">
+          <Form.Label>Blog text</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={5}
+            type="text"
+            onChange={(e) => handleChange(e)}
+            minLength="100"
+            required
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="author">
+          <Form.Label>Author</Form.Label>
+          <Form.Control type="text" onChange={(e) => handleChange(e)} minLength="5" required />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="photo">
+          <Form.Label>Photo</Form.Label>
+          <Form.Control type="file" onChange={(e) => handleChange(e)} />
+          <Button variant="btn btn-secondary" onClick={handleClick}>
+            Upload photo
+          </Button>
+        </Form.Group>
+
+        <Button variant="info" type="submit">
+          Send <IoMdSend />
+        </Button>
+      </Form>
+    </div>
+  );
 }
