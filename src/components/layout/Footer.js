@@ -13,7 +13,7 @@ export default function Footer() {
         <Nav.Link href="https://github.com/patrycja-i-lesniak">
           <BsGithub className="github" />
         </Nav.Link>
-        <Mailto className='mailMe' email="foo@bar.baz" subject="Hello" body="Hello world!">
+        <Mailto email="patrycja.lesniak@gmail.com" subject="Hello" body="Hello world!">
           Mail me!
         </Mailto>
       </Navbar>
