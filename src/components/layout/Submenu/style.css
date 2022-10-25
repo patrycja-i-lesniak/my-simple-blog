@@ -1,0 +1,24 @@
+.submenu {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    border-top: 1px solid lightgrey;
+}
+
+.submenu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    padding: 10px;
+}
+
+.submenu .active {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    font-weight: bold;
+}
+
+.submenu .add {
+    color: #2ed2f2;
+    font-weight: bold;
+}

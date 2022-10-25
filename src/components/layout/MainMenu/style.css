@@ -1,0 +1,35 @@
+.mainmenu__container {
+    display: flex;
+    align-items: center;
+}
+
+.mainmenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin: 20px 50px;
+    padding: 0;
+}
+
+.mainmenu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    padding: 10px;
+}
+
+/* a:hover {
+    color: grey;
+} */
+
+.mainmenu .active {
+    color: crimson;
+}
+
+.mainmenu__link--header {
+    color: #151515;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 1.8px;
+}
