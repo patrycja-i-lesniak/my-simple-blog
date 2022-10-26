@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import { auth } from "config/firebase";
+import { auth } from "config/firebaseConfig";
 
 export default function SignedOutLinks() {
   const user = auth.currentUser;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Form, Alert } from "react-bootstrap";
 import { serverTimestamp } from "firebase/firestore";
-import { useAuth } from "config/firebase";
+import { useAuth } from "config/firebaseConfig";
 
 import { updateUserData } from "config/firestore";
 

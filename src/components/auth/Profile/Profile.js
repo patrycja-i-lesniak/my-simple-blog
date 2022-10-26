@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Spinner } from "react-bootstrap";
 
-import { useAuth } from "config/firebase";
+import { useAuth } from "config/firebaseConfig";
 import ProfileHeader from "./ProfileHeader";
 
 export default function Profile() {

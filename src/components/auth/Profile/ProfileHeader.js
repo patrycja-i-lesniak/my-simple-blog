@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "config/firebase";
+import { useAuth } from "config/firebaseConfig";
 import { Button, Image } from "react-bootstrap";
 
 import { ProfileForm } from "components";

@@ -3,7 +3,7 @@ import { Form, Image } from "react-bootstrap";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-import { auth } from "config/firebase";
+import { auth } from "config/firebaseConfig";
 
 export default function GoogleLoginForm() {
   const [loading, setLoading] = useState(false);

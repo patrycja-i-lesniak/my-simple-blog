@@ -4,13 +4,13 @@ import {
 	getFirestore,
 	collection,
 	getDocs,
-	addDoc
+	// addDoc
 	//  query, orderBy, limit
 	//  addDoc, deleteDoc, doc
 } from 'firebase/firestore';
 import {
 	getAuth,
-	createUserWithEmailAndPassword,
+	// createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	onAuthStateChanged,
 	signOut,
@@ -32,31 +32,21 @@ const firebaseConfig = {
 
 // init firebase app
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const auth = getAuth();
 const storage = getStorage();
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
 
-// // setPersistance
-// setPersistence(auth, browserSessionPersistence)
-// 	.then(() => {
-// 		return signInWithEmailAndPassword(auth)
-// 	})
-// 	.catch((error) => {
-// 		// Handle Errors here.
-// 		const errorCode = error.code;
-// 		const errorMessage = error.message;
-// 	});
+onAuthStateChanged(auth, (user) => {
+	if (user) {
+		// User is signed in, see docs for a list of available properties
+		// https://firebase.google.com/docs/reference/js/firebase.User
+		const uid = user.uid;
+		// ...
+	} else {
+		// User is signed out
+		// ...
+	}
+});
 
 // Logout
 function logout() {
@@ -67,10 +57,11 @@ function logout() {
 const db = getFirestore();
 
 // collection ref
-const colRef = collection(db, 'blogs');
+const blogRef = collection(db, 'blogs');
+
 
 //get collection data
-getDocs(colRef)
+getDocs(blogRef)
 	.then((snapshot) => {
 		let blogs = [];
 		snapshot.docs.forEach((doc) => {
@@ -81,41 +72,46 @@ getDocs(colRef)
 		console.log(err.message);
 	});
 
+// // Signup
 
+// const signUpWithEmailAndPassword = async (email, password
+// 	// , firstname, lastname
+// 	) => {
+// 	try {
+// 		const res = await createUserWithEmailAndPassword(auth, email, password);
+// 		const user = res.user;
+// 		await addDoc(collection(db, 'users'), {
+// 			uid: user.uid,
+// 			// firstname,
+// 			// lastname,
+// 			authProvider: 'local',
+// 			email,
+// 			password
+// 		});
+// 		// console.log('Witaj', firstname);
+	
+// 	} catch (err) {
+// 		console.error(err);
+// 		alert(err.message);
+// 	}
+// };
 
-// Signup
+// Sign in
+setPersistence(auth, browserSessionPersistence);
 
-const signUpWithEmailAndPassword = async (email, password, firstname, lastname) => {
-	try {
-		const res = await createUserWithEmailAndPassword(auth, email, password);
-		const user = res.user;
-		await addDoc(collection(db, 'users'), {
-			uid: user.uid,
-			firstname,
-			lastname,
-			authProvider: 'local',
-			email
-		});
-		console.log('Witaj', firstname);
-	} catch (err) {
-		console.error(err);
-		alert(err.message);
-	}
-};
-
-// Login
-setPersistence(auth, browserSessionPersistence)
-const logInWithEmailAndPassword = async (email, password) => {
-	try {
-		await signInWithEmailAndPassword(auth, email, password);
-	} catch (err) {
-		console.error(err);
-		alert(err.message);
-	}
-};
+function createUser(data, navigate) {
+  const logInWithEmailAndPassword = async (email, password) => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
+  };
+}
 
 // Custom Hook
-export function useAuth() {
+function useAuth() {
 	const [ currentUser, setCurrentUser ] = useState();
 	// if (user) {
 	// 		const uid = user.uid;
@@ -145,14 +141,20 @@ async function upload(file, currentUser, setLoading) {
 	alert('Uploaded file!');
 }
 
+
+
 export {
+	app,
 	auth,
+	useAuth,
+	storage,
 	db,
-	logInWithEmailAndPassword,
+	createUser,
+	// logInWithEmailAndPassword,
 	//   signInWithGoogle,
-	signUpWithEmailAndPassword,
+	// signUpWithEmailAndPassword,
 	//   sendPasswordReset,
 	logout,
-	colRef,
+	blogRef,
 	upload
 };

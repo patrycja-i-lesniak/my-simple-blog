@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 
-import { auth } from "config/firebase";
+import { auth } from "config/firebaseConfig";
 
 export default function SignedInLinks() {
   const [loading, setLoading] = useState(false);
