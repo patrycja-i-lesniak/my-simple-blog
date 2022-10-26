@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import {AboutCard} from 'components'
 
 export default function About() {
   return (
-    <div>
-      <h1>About page...</h1>
+    <div className='wrapper'>
+      <AboutCard/>
     </div>
   )
 }
