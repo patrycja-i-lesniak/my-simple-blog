@@ -26,10 +26,10 @@ export default function SignedInLinks() {
 
   return (
     <div hidden={loading || !user}>
-      <NavLink end className="mainmenu__link" to="/" onClick={(e) => handleLogout(e)}>
+      <NavLink end to="/" onClick={(e) => handleLogout(e)}>
         Log Out
       </NavLink>
-      <NavLink className="mainmenu__link" to="/signin/profile">
+      <NavLink  to="/signin/profile">
         Your Profile
       </NavLink>
     </div>
