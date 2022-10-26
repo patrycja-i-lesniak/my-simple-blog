@@ -12,7 +12,6 @@ export { default as MainMenu } from "./layout/MainMenu";
 export { default as ActionForm } from "./layout/ActionForm";
 export { default as GoogleLoginForm } from "./layout/GoogleLoginForm";
 export { default as AlertPopup } from "./layout/AlertPopup";
-export { default as Mailto } from "./layout/Mailto";
 export { default as NotFoundPage } from "./layout/NotFoundPage";
 export {default as AboutCard} from './layout/AboutCard';
 export { default as ControlledCarousel } from "./layout/ControlledCarousel";
