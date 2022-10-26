@@ -9,12 +9,14 @@ export { default as Footer } from "./layout/Footer";
 export { default as SearchBox } from "./layout/SearchBox";
 export { default as Submenu } from "./layout/Submenu/";
 export { default as MainMenu } from "./layout/MainMenu";
-export { default as Slider } from "./layout/Slider";
 export { default as ActionForm } from "./layout/ActionForm";
 export { default as GoogleLoginForm } from "./layout/GoogleLoginForm";
 export { default as AlertPopup } from "./layout/AlertPopup";
 export { default as Mailto } from "./layout/Mailto";
 export { default as NotFoundPage } from "./layout/NotFoundPage";
+export {default as AboutCard} from './layout/AboutCard';
+export { default as ControlledCarousel } from "./layout/ControlledCarousel";
+
 
 // blogs
 export { default as BlogDetails } from "./blogs/BlogDetails";
