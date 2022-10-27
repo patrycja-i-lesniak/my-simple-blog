@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/awesome-blog/static/css/main.7777dbf6.css",
-    "main.js": "/awesome-blog/static/js/main.c0d17413.js",
+    "main.css": "/awesome-blog/static/css/main.6afdfaac.css",
+    "main.js": "/awesome-blog/static/js/main.de1dedaa.js",
     "static/media/photo-3.jpg": "/awesome-blog/static/media/photo-3.13a833778b91d1bd428c.jpg",
     "static/media/photo-1.jpg": "/awesome-blog/static/media/photo-1.4e31fc9a36e138f0257d.jpg",
     "static/media/photo-2.jpg": "/awesome-blog/static/media/photo-2.8d2a7f343af2aab263e9.jpg",
+    "static/media/blank-profile-picture.png": "/awesome-blog/static/media/blank-profile-picture.7a6a6c54279a54d1977c.png",
     "index.html": "/awesome-blog/index.html",
-    "main.7777dbf6.css.map": "/awesome-blog/static/css/main.7777dbf6.css.map",
-    "main.c0d17413.js.map": "/awesome-blog/static/js/main.c0d17413.js.map"
+    "main.6afdfaac.css.map": "/awesome-blog/static/css/main.6afdfaac.css.map",
+    "main.de1dedaa.js.map": "/awesome-blog/static/js/main.de1dedaa.js.map"
   },
   "entrypoints": [
-    "static/css/main.7777dbf6.css",
-    "static/js/main.c0d17413.js"
+    "static/css/main.6afdfaac.css",
+    "static/js/main.de1dedaa.js"
   ]
 }
