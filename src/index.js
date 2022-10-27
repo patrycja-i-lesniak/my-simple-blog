@@ -9,7 +9,7 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename="/simple-vege-life">
       <App />
     </Router>
   </StrictMode>
