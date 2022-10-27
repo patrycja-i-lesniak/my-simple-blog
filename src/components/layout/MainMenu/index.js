@@ -5,15 +5,16 @@ import { useAuth } from "config/firebaseConfig";
 import SignedInLiks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 
+import blankProfilePicture from 'assets/blank-profile-picture.png';
+
 import "./style.css";
+
 
 export default function MainMenu({ toggleIsVisible, isVisible }) {
   const currentUser = useAuth();
  
   // const [loading, setLoading] = useState(false);
-  const [photoURL, setPhotoURL] = useState(
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-  );
+  const [photoURL, setPhotoURL] = useState(blankProfilePicture);
 
   useEffect(() => {
     currentUser && currentUser.photoURL ? setPhotoURL(currentUser.photoURL) : setPhotoURL(photoURL);

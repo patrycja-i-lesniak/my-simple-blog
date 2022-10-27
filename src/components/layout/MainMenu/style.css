@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
-    margin: 20px 50px;
+    margin: 20px 30px;
     padding: 0;
 }
 
@@ -32,4 +32,27 @@
     font-size: 36px;
     font-weight: bold;
     letter-spacing: 1.8px;
+}
+
+
+@media (max-width: 768px) {
+    .mainmenu {
+        flex-direction: column
+    }
+}
+
+@media (max-width: 468px) {
+    .mainmenu {
+        margin: 10px;
+        font-size: 12px;
+    }
+
+    .mainmenu a {
+        padding: 10px;
+    }
+
+    .mainmenu__link--header {
+        font-size: 26px;
+        letter-spacing: 1px;
+    }
 }

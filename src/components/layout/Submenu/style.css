@@ -12,6 +12,10 @@
     padding: 10px;
 }
 
+ul.submenu {
+    padding: 0;
+}
+
 .submenu .active {
     text-decoration: underline;
     text-underline-offset: 6px;
@@ -21,4 +25,10 @@
 .submenu .add {
     color: #2ed2f2;
     font-weight: bold;
+}
+
+@media (max-width: 468px) {
+    .submenu  {
+        font-size: 12px;
+    }
 }
