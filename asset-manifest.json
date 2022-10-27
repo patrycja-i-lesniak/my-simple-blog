@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "https://patrycja-i-lesniak.github.io/simple-vege-life/static/css/main.e4930f83.css",
-    "main.js": "https://patrycja-i-lesniak.github.io/simple-vege-life/static/js/main.9fdee09c.js",
-    "static/media/photo-3.jpg": "https://patrycja-i-lesniak.github.io/simple-vege-life/static/media/photo-3.13a833778b91d1bd428c.jpg",
-    "static/media/photo-1.jpg": "https://patrycja-i-lesniak.github.io/simple-vege-life/static/media/photo-1.4e31fc9a36e138f0257d.jpg",
-    "static/media/photo-2.jpg": "https://patrycja-i-lesniak.github.io/simple-vege-life/static/media/photo-2.8d2a7f343af2aab263e9.jpg",
-    "static/media/notFound.png": "https://patrycja-i-lesniak.github.io/simple-vege-life/static/media/notFound.23176e49495676b9b653.png",
-    "static/media/empty.png": "https://patrycja-i-lesniak.github.io/simple-vege-life/static/media/empty.8ff8b82f4258e90c1f9b.png",
-    "static/media/blank-profile-picture.png": "https://patrycja-i-lesniak.github.io/simple-vege-life/static/media/blank-profile-picture.521b0de4a03f05ceab25.png",
-    "index.html": "https://patrycja-i-lesniak.github.io/simple-vege-life/index.html",
-    "main.e4930f83.css.map": "https://patrycja-i-lesniak.github.io/simple-vege-life/static/css/main.e4930f83.css.map",
-    "main.9fdee09c.js.map": "https://patrycja-i-lesniak.github.io/simple-vege-life/static/js/main.9fdee09c.js.map"
+    "main.css": "/simple-vege-life/index.html/static/css/main.e4930f83.css",
+    "main.js": "/simple-vege-life/index.html/static/js/main.e86de457.js",
+    "static/media/photo-3.jpg": "/simple-vege-life/index.html/static/media/photo-3.13a833778b91d1bd428c.jpg",
+    "static/media/photo-1.jpg": "/simple-vege-life/index.html/static/media/photo-1.4e31fc9a36e138f0257d.jpg",
+    "static/media/photo-2.jpg": "/simple-vege-life/index.html/static/media/photo-2.8d2a7f343af2aab263e9.jpg",
+    "static/media/notFound.png": "/simple-vege-life/index.html/static/media/notFound.23176e49495676b9b653.png",
+    "static/media/empty.png": "/simple-vege-life/index.html/static/media/empty.8ff8b82f4258e90c1f9b.png",
+    "static/media/blank-profile-picture.png": "/simple-vege-life/index.html/static/media/blank-profile-picture.521b0de4a03f05ceab25.png",
+    "index.html": "/simple-vege-life/index.html/index.html",
+    "main.e4930f83.css.map": "/simple-vege-life/index.html/static/css/main.e4930f83.css.map",
+    "main.e86de457.js.map": "/simple-vege-life/index.html/static/js/main.e86de457.js.map"
   },
   "entrypoints": [
     "static/css/main.e4930f83.css",
-    "static/js/main.9fdee09c.js"
+    "static/js/main.e86de457.js"
   ]
 }
