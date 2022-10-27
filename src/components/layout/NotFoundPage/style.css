@@ -1,0 +1,9 @@
+.notFound__container {
+    display: flex;
+    justify-content: center;
+}
+
+.notFound__image {
+    max-width: 80%;
+    height: auto;
+}

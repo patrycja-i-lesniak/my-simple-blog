@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import {Spinner} from 'react-bootstrap'
+import {Spinner} from 'react-bootstrap';
+
+import notFound from 'assets/notFound.png';
+import './style.css';
 
 
 export default function NotFoundPage ()  {
@@ -22,10 +25,9 @@ export default function NotFoundPage ()  {
           </Spinner>
         </>
       ) : (
-        <>
-        <h1>Not Found</h1>
-        <p>"Please make sure that url address is correct" </p>
-        </>
+        <div className='notFound__container' >
+        <img src={notFound} alt='404' className='notFound__image'/>
+        </div>
       )}
     </>
   );
