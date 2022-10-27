@@ -1,8 +1,8 @@
 {
-  "name": "awesome-blog",
+  "name": "simply-vege-life",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://patrycja-i-lesniak.github.io/awesome-blog/",
+  "homepage": "https://patrycja-i-lesniak.github.io/simple-vege-life",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
