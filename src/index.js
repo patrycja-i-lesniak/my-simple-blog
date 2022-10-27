@@ -1,6 +1,6 @@
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 
@@ -9,9 +9,9 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <BrowserRouter>
+    <Router basename={process.env.PUBLIC_URL}>
       <App />
-    </BrowserRouter>
+    </Router>
   </StrictMode>
 );
 

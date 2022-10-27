@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Routes, Outlet } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 // components
 import { NotFoundPage, SignUp, Footer, SearchBox, Submenu, MainMenu } from "components";
@@ -26,7 +26,6 @@ function App() {
         <Route path="signup" element={<SignUp />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      <Outlet />
       <Footer />
     </>
   );
