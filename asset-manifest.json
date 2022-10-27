@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.css": "/awesome-blog/static/css/main.6afdfaac.css",
-    "main.js": "/awesome-blog/static/js/main.de1dedaa.js",
+    "main.css": "/awesome-blog/static/css/main.e4930f83.css",
+    "main.js": "/awesome-blog/static/js/main.8cf96d4d.js",
     "static/media/photo-3.jpg": "/awesome-blog/static/media/photo-3.13a833778b91d1bd428c.jpg",
     "static/media/photo-1.jpg": "/awesome-blog/static/media/photo-1.4e31fc9a36e138f0257d.jpg",
     "static/media/photo-2.jpg": "/awesome-blog/static/media/photo-2.8d2a7f343af2aab263e9.jpg",
-    "static/media/blank-profile-picture.png": "/awesome-blog/static/media/blank-profile-picture.7a6a6c54279a54d1977c.png",
+    "static/media/notFound.png": "/awesome-blog/static/media/notFound.23176e49495676b9b653.png",
+    "static/media/empty.png": "/awesome-blog/static/media/empty.8ff8b82f4258e90c1f9b.png",
+    "static/media/blank-profile-picture.png": "/awesome-blog/static/media/blank-profile-picture.521b0de4a03f05ceab25.png",
     "index.html": "/awesome-blog/index.html",
-    "main.6afdfaac.css.map": "/awesome-blog/static/css/main.6afdfaac.css.map",
-    "main.de1dedaa.js.map": "/awesome-blog/static/js/main.de1dedaa.js.map"
+    "main.e4930f83.css.map": "/awesome-blog/static/css/main.e4930f83.css.map",
+    "main.8cf96d4d.js.map": "/awesome-blog/static/js/main.8cf96d4d.js.map"
   },
   "entrypoints": [
-    "static/css/main.6afdfaac.css",
-    "static/js/main.de1dedaa.js"
+    "static/css/main.e4930f83.css",
+    "static/js/main.8cf96d4d.js"
   ]
 }
