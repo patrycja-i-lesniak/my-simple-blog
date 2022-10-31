@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { getDocs, query, where } from 'firebase/firestore';
-import { colRef } from '../../config/firebaseConfig';
+import { blogRef } from '../../config/firebaseConfig';
 import { useNavigate } from 'react-router-dom';
-import { Button, Icon, TextInput } from 'react-materialize';
+import { Container, Form, Button } from 'react-bootstrap';
+import { BiSearch } from 'react-icons/bi';
 
-export default function SearchBox() {
+export default function SearchBox({ isVisible }) {
 	const [ title, setTitle ] = useState();
 	const navigate = useNavigate();
 
@@ -18,7 +19,7 @@ export default function SearchBox() {
 		const userInputName = title;
 		console.log('userInputName:', userInputName);
 
-		const q = query(colRef, where('title', '==', userInputName));
+		const q = query(blogRef, where('title', '==', userInputName));
 
 		const snapshot = await getDocs(q);
 
@@ -34,19 +35,16 @@ export default function SearchBox() {
 	};
 
 	return (
-		<form className="search-form input-field" onSubmit={(e) => handleQuerySearch(e)}>
-			<TextInput
-				id="TextInput-78"
-				label="Search article by title"
-				onChange={(e) => handleChange(e)}
-				minLength="5"
-				inputClassName="grey-text"
-				className="search-form"
-			/>
-			<Button node="button" type="submit" waves="light" className="orange">
-				Search
-				<Icon right>search</Icon>
-			</Button>
-		</form>
+		<Container fluid className="search-container" isVisible={!isVisible}>
+			<form className="search-form" onSubmit={(e) => handleQuerySearch(e)}>
+				<input
+					className="search-input"
+					placeholder="Search article by title..."
+					onChange={(e) => handleChange(e)}
+					minLength="5"
+				/>
+				<BiSearch  className="search-icon" />
+			</form>
+		</Container>
 	);
 }
