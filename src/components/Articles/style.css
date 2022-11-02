@@ -1,0 +1,22 @@
+.card__container {
+    margin: 20px 0;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card__created {
+    font-size: 14px;
+    color: grey;
+    padding: 10px 0;
+}
+
+.card__description {
+    font-weight: bold;
+}
+
+.card__buttons {
+    display: flex;
+    justify-content: space-between;
+}
