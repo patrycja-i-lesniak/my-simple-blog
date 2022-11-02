@@ -1,0 +1,8 @@
+.publish {
+    margin: 20px 0;
+}
+
+.add__button {
+    display: flex;
+    justify-content: flex-end;
+}
