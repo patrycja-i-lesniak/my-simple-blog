@@ -6,3 +6,11 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.form__info {
+text-align: center;
+}
+
+.form__login {
+    margin-bottom: 20px;
+}
