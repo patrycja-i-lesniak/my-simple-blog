@@ -19,13 +19,15 @@ body {
 	word-wrap: break-word;
 }
 
+span {
+	font-weight: bold;
+}
+
 .wrapper {
 	display: flex;
 	justify-content: center;
 	margin: 50px;
 }
-
-
 
 .box-container {
 	display: flex;
@@ -45,10 +47,7 @@ body {
 	border-radius: 3px;
 	width: 70%;
 	max-width: 800px;
-
-
 }
-
 
 .alert-container {
 	background: rgb(230, 247, 248);
@@ -256,7 +255,7 @@ form, form .button {
 		margin: 0 10px;
 	}
 
-	
+
 
 
 }
