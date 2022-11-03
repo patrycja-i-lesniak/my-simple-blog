@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // components
 import { NotFoundPage, Register, Footer, Submenu, MainMenu } from "components";
 import { Home, About, Contact } from "pages";
-import { ArticlesRoutes, SignInRoutes } from "routes";
+import { ArticlesRoutes, LoginRoutes } from "routes";
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/articles/*" element={<ArticlesRoutes />} />
-          <Route path="/signin/*" element={<SignInRoutes />} />
+          <Route path="/login/*" element={<LoginRoutes />} />
           <Route path="/register" element={<Register />} />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
