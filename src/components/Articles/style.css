@@ -6,17 +6,19 @@
     margin-bottom: 20px;
 }
 
-.card__created {
+.card__created  {
     font-size: 14px;
     color: grey;
     padding: 10px 0;
 }
 
-.card__description {
-    font-weight: bold;
-}
-
 .card__buttons {
     display: flex;
     justify-content: space-between;
+    margin: 20px 0;
+}
+
+.card__buttons--optional {
+    gap: 20px;
+    display: flex;
 }
