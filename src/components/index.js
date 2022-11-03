@@ -1,5 +1,5 @@
 // auth
-export { default as SignIn } from "./auth/SignIn";
+export { default as Login } from "./auth/Login";
 export { default as Register } from "./auth/Register";
 export { default as Profile } from "./auth/Profile/Profile";
 export { default as ProfileForm } from "./auth/Profile/ProfileForm";
@@ -30,4 +30,5 @@ export { default as DeleteArticle } from "./DeleteArticle";
 export { default as ArticleDetails } from "./ArticleDetails";
 export { default as EditArticle } from "./EditArticle";
 export { default as ArticleDescription } from "./ArticleDescription";
-export {default as SearchIcons} from './SearchIcons';
+export { default as SearchIcons } from "./SearchIcons";
+export { default as LikeArticle } from "./LikeArticle";
