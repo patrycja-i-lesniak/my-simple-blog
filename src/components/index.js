@@ -30,3 +30,4 @@ export { default as DeleteArticle } from "./DeleteArticle";
 export { default as ArticleDetails } from "./ArticleDetails";
 export { default as EditArticle } from "./EditArticle";
 export { default as ArticleDescription } from "./ArticleDescription";
+export {default as SearchIcons} from './SearchIcons';
