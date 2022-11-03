@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import 'font-awesome/css/font-awesome.css';
 import "./index.css";
 import App from "./App";
 
