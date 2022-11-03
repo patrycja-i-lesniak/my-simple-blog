@@ -1,19 +1,23 @@
 {
   "files": {
-    "main.css": "/simple-vege-life/static/css/main.1c724851.css",
-    "main.js": "/simple-vege-life/static/js/main.26bd23ae.js",
+    "main.css": "/simple-vege-life/static/css/main.1bded1f4.css",
+    "main.js": "/simple-vege-life/static/js/main.64c56ae5.js",
     "static/media/photo-3.jpg": "/simple-vege-life/static/media/photo-3.13a833778b91d1bd428c.jpg",
     "static/media/photo-1.jpg": "/simple-vege-life/static/media/photo-1.4e31fc9a36e138f0257d.jpg",
     "static/media/photo-2.jpg": "/simple-vege-life/static/media/photo-2.8d2a7f343af2aab263e9.jpg",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/simple-vege-life/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/notFound.png": "/simple-vege-life/static/media/notFound.23176e49495676b9b653.png",
-    "static/media/empty.png": "/simple-vege-life/static/media/empty.8ff8b82f4258e90c1f9b.png",
+    "static/media/fontawesome-webfont.eot": "/simple-vege-life/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/simple-vege-life/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/simple-vege-life/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/simple-vege-life/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "static/media/blank-profile-picture.png": "/simple-vege-life/static/media/blank-profile-picture.521b0de4a03f05ceab25.png",
     "index.html": "/simple-vege-life/index.html",
-    "main.1c724851.css.map": "/simple-vege-life/static/css/main.1c724851.css.map",
-    "main.26bd23ae.js.map": "/simple-vege-life/static/js/main.26bd23ae.js.map"
+    "main.1bded1f4.css.map": "/simple-vege-life/static/css/main.1bded1f4.css.map",
+    "main.64c56ae5.js.map": "/simple-vege-life/static/js/main.64c56ae5.js.map"
   },
   "entrypoints": [
-    "static/css/main.1c724851.css",
-    "static/js/main.26bd23ae.js"
+    "static/css/main.1bded1f4.css",
+    "static/js/main.64c56ae5.js"
   ]
 }
