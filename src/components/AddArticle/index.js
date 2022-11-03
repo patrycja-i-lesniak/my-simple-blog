@@ -30,7 +30,7 @@ export default function AddArticle() {
   }
 
   const handlePublish = () => {
-    if (!formData.title || !formData.image || !formData.description || !formData.author) {
+    if (!formData.title || !formData.description || !formData.author) {
       alert("Please fill all the fields");
       return;
     }
