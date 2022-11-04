@@ -40,7 +40,7 @@ export default function Register() {
       )}
       <div className="form-container">
         <div>
-          <h5 className="grey-text text-darken-3">Sign up</h5>
+          <h5 className="grey-text text-darken-3">Register new user</h5>
           <Form>
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>
