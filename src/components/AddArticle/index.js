@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Form, Button, ProgressBar } from "react-bootstrap";
 import { MdPublishedWithChanges } from "react-icons/md";
 import { Timestamp, collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage, db } from "firebaseConfig";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
-import './style.css';
+
+import { storage, db, auth } from "firebaseConfig";
+import "./style.css";
 
 export default function AddArticle() {
+  const [user] = useAuthState(auth);
   const [formData, setFormData] = useState({
     title: "",
-    author: "",
     image: "",
     description: "",
     createdAt: Timestamp.now().toDate(),
@@ -30,7 +32,7 @@ export default function AddArticle() {
   }
 
   const handlePublish = () => {
-    if (!formData.title || !formData.description || !formData.author) {
+    if (!formData.title || !formData.description || !formData.articleBody) {
       alert("Please fill all the fields");
       return;
     }
@@ -51,7 +53,6 @@ export default function AddArticle() {
       () => {
         setFormData({
           title: "",
-          author: "",
           description: "",
           image: "",
           articleBody: "",
@@ -61,11 +62,14 @@ export default function AddArticle() {
           const articleRef = collection(db, "Articles");
           addDoc(articleRef, {
             title: formData.title,
-            author: formData.author,
             description: formData.description,
             articleBody: formData.articleBody,
             imageUrl: url,
             createdAt: Timestamp.now().toDate(),
+            createdBy: user.displayName,
+            userId: user.uid,
+            likes: [],
+            comments: [],
           })
             .then(() => {
               toast("Article added successfully", { type: "succes " });
@@ -82,73 +86,81 @@ export default function AddArticle() {
 
   return (
     <div className="form-container">
-      <Form>
-        <h5>Add new article</h5>
-        <Form.Group className="mb-3" controlId="title">
-          <Form.Label>Title</Form.Label>
-          <Form.Control
-            type="text"
-            minLength="5"
-            required
-            onChange={(e) => handleChange(e)}
-            name="title"
+      {!user ? (
+        <div className="form__info">
+          <div className="form__login">
+            <Button variant="info" onClick={() => navigate("/login")}>
+              Login to create an article
+            </Button>
+          </div>
+
+          <div>
+            Don't have an account? <Link to="/register">Signup</Link>
+          </div>
+        </div>
+      ) : (
+        <Form>
+          <h5>Add new article</h5>
+          <Form.Group className="mb-3" controlId="title">
+            <Form.Label>Title</Form.Label>
+            <Form.Control
+              type="text"
+              minLength="5"
+              required
+              onChange={(e) => handleChange(e)}
+              name="title"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="description">
+            <Form.Label>Description </Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={1}
+              type="text"
+              maxLength="300"
+              // required
+              onChange={(e) => handleChange(e)}
+              name="description"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="articleBody">
+            <Form.Label>Article Body</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={5}
+              type="text"
+              minLength="100"
+              // required
+              onChange={(e) => handleChange(e)}
+              name="articleBody"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="image">
+            <Form.Label>Add image</Form.Label>
+            <Form.Control type="file" accept="image/*" onChange={(e) => handleImageChange(e)} />
+          </Form.Group>
+
+          {/* {progress === 0 ? null : ( */}
+
+          <ProgressBar
+            className="publish"
+            variant="info"
+            now={`uploading image ${progress}%`}
+            label={`${progress}%`}
           />
-        </Form.Group>
 
-        <Form.Group className="mb-3" controlId="description">
-          <Form.Label>Description </Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={1}
-            type="text"
-            maxLength="100"
-            // required
-            onChange={(e) => handleChange(e)}
-            name="description"
-          />
-        </Form.Group>
+          {/* )} */}
 
-        <Form.Group className="mb-3" controlId="articleBody">
-          <Form.Label>Article Body</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={5}
-            type="text"
-            minLength="100"
-            // required
-            onChange={(e) => handleChange(e)}
-            name="articleBody"
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="author">
-          <Form.Label>Author</Form.Label>
-          <Form.Control
-            type="text"
-            minLength="5"
-            // required
-            onChange={(e) => handleChange(e)}
-            name="author"
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="image">
-          <Form.Label>Add image</Form.Label>
-          <Form.Control type="file" accept="image/*" onChange={(e) => handleImageChange(e)} />
-        </Form.Group>
-
-        {/* {progress === 0 ? null : ( */}
-
-        <ProgressBar className='publish' variant="info" now={`uploading image ${progress}%`} label={`${progress}%`} />
-
-        {/* )} */}
-
-        <Form.Group className='add__button'>
-          <Button variant="info" onClick={handlePublish}>
-            Publish Article <MdPublishedWithChanges />
-          </Button>
-        </Form.Group>
-      </Form>
+          <Form.Group className="add__button">
+            <Button variant="info" onClick={handlePublish}>
+              Publish Article <MdPublishedWithChanges />
+            </Button>
+          </Form.Group>
+        </Form>
+      )}
     </div>
   );
 }
