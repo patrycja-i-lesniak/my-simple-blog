@@ -19,7 +19,7 @@ export default function GoogleLoginForm() {
     signInWithPopup(auth, googleProvider)
       .then((userCredential) => {
         console.log(userCredential.user);
-        navigate("/signin/profile");
+        navigate("/login/profile");
       })
       .catch((err) => {
         setError(err.message);
