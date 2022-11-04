@@ -1,2 +1,2 @@
 export { default as ArticlesRoutes } from "./ArticlesRoutes";
-export { default as SignInRoutes } from "./SignInRoutes";
+export { default as LoginRoutes } from "./LoginRoutes";

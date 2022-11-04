@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { SignIn, Profile } from "components";
+import { Login, Profile } from "components";
 
-export default function SignInRoutes() {
+export default function LoginRoutes() {
   return (
     <Routes>
-      <Route index element={<SignIn />} />
+      <Route index element={<Login />} />
       <Route path="profile" element={<Profile />} />
     </Routes>
   );
