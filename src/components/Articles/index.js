@@ -8,7 +8,7 @@ import "./style.css";
 import { db, auth } from "firebaseConfig";
 import { LikeButton } from "components";
 
-export default function Articles() {
+export default function Articles({size}) {
   const [user] = useAuthState(auth);
   const [articles, setArticles] = useState([]);
 
@@ -31,7 +31,7 @@ export default function Articles() {
       {articles.length === 0 ? (
         <p>No article found!</p>
       ) : (
-        articles.map(
+        articles.slice(0, size).map(
           ({
             id,
             title,
