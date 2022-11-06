@@ -3,7 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "firebaseConfig";
 import { doc, updateDoc, arrayRemove, arrayUnion } from "firebase/firestore";
 
-export default function LikeArticle({ id, likes }) {
+export default function LikeButton({ id, likes }) {
   const [user] = useAuthState(auth);
   const likesRef = doc(db, "Articles", id);
 
