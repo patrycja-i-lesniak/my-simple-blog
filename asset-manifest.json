@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/simple-vege-life/static/css/main.5ff78ce0.css",
-    "main.js": "/simple-vege-life/static/js/main.15d298f4.js",
+    "main.js": "/simple-vege-life/static/js/main.ceda921e.js",
     "static/media/photo-1.jpg": "/simple-vege-life/static/media/photo-1.3ec88e1ba02d90998d4b.jpg",
     "static/media/photo-3.jpg": "/simple-vege-life/static/media/photo-3.5b6ef024d24e76380f34.jpg",
     "static/media/photo-2.jpg": "/simple-vege-life/static/media/photo-2.237aa3d5593acc77b494.jpg",
@@ -14,10 +14,10 @@
     "static/media/blank-profile-picture.png": "/simple-vege-life/static/media/blank-profile-picture.521b0de4a03f05ceab25.png",
     "index.html": "/simple-vege-life/index.html",
     "main.5ff78ce0.css.map": "/simple-vege-life/static/css/main.5ff78ce0.css.map",
-    "main.15d298f4.js.map": "/simple-vege-life/static/js/main.15d298f4.js.map"
+    "main.ceda921e.js.map": "/simple-vege-life/static/js/main.ceda921e.js.map"
   },
   "entrypoints": [
     "static/css/main.5ff78ce0.css",
-    "static/js/main.15d298f4.js"
+    "static/js/main.ceda921e.js"
   ]
 }
