@@ -6,12 +6,11 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 import "./style.css";
 import { db, auth } from "firebaseConfig";
-import { DeleteArticle, EditArticle, ArticleDescription, LikeButton } from "components";
+import { LikeButton } from "components";
 
 export default function Articles({ width }) {
   const [user] = useAuthState(auth);
   const [articles, setArticles] = useState([]);
-  const [isVisible, setVisible] = useState(false);
 
   const navigate = useNavigate();
 
@@ -51,32 +50,14 @@ export default function Articles({ width }) {
               <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text className="card__created">{createdAt.toDate().toDateString()}</Card.Text>
-                <ArticleDescription description={description} isVisible={isVisible} />
-                {isVisible && (
-                  <>
-                    <Card.Text>{articleBody}</Card.Text>
-                    {createdBy && <Card.Text className="card__createdBy">{createdBy}</Card.Text>}
-                  </>
-                )}
-
+                <Card.Text className="card__description">{description}</Card.Text>
                 <div className="card__buttons">
                   <Button
                     variant="info"
-                    // as={Link}
-                    // to={`articles/${id}`}
-                    // onClick={() => setVisible(!isVisible)}
                     onClick={() => navigate(`/articles/${id}`, { replace: true })}
                   >
-                    {/* {isVisible ? "Show less" : " Show more"} */}
                     read more
                   </Button>
-
-                  {/* {user && (
-                    <div className="card__buttons--optional">
-                      <EditArticle id={id} imageUrl={imageUrl} />
-                      <DeleteArticle id={id} imageUrl={imageUrl} />
-                    </div>
-                  )} */}
                 </div>
                 <div className="card__iconsContainer">
                   <div className="d-flex ">
@@ -94,13 +75,6 @@ export default function Articles({ width }) {
                     </div>
                     {comments?.length > 0 && <p className="px-3">{comments?.length} comments</p>}
                   </div>
-
-                  {user?.uid === userId && (
-                    <div className="card__icons--optional">
-                      <EditArticle id={id} imageUrl={imageUrl} />
-                      <DeleteArticle id={id} imageUrl={imageUrl} />
-                    </div>
-                  )}
                 </div>
               </Card.Body>
             </Card>
