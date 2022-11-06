@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/simple-vege-life/static/css/main.1bded1f4.css",
-    "main.js": "/simple-vege-life/static/js/main.64c56ae5.js",
-    "static/media/photo-3.jpg": "/simple-vege-life/static/media/photo-3.13a833778b91d1bd428c.jpg",
-    "static/media/photo-1.jpg": "/simple-vege-life/static/media/photo-1.4e31fc9a36e138f0257d.jpg",
-    "static/media/photo-2.jpg": "/simple-vege-life/static/media/photo-2.8d2a7f343af2aab263e9.jpg",
+    "main.css": "/simple-vege-life/static/css/main.332f89d2.css",
+    "main.js": "/simple-vege-life/static/js/main.a223d752.js",
+    "static/media/photo-1.jpg": "/simple-vege-life/static/media/photo-1.3ec88e1ba02d90998d4b.jpg",
+    "static/media/photo-3.jpg": "/simple-vege-life/static/media/photo-3.5b6ef024d24e76380f34.jpg",
+    "static/media/photo-2.jpg": "/simple-vege-life/static/media/photo-2.237aa3d5593acc77b494.jpg",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/simple-vege-life/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/notFound.png": "/simple-vege-life/static/media/notFound.23176e49495676b9b653.png",
     "static/media/fontawesome-webfont.eot": "/simple-vege-life/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
@@ -13,11 +13,11 @@
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/simple-vege-life/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "static/media/blank-profile-picture.png": "/simple-vege-life/static/media/blank-profile-picture.521b0de4a03f05ceab25.png",
     "index.html": "/simple-vege-life/index.html",
-    "main.1bded1f4.css.map": "/simple-vege-life/static/css/main.1bded1f4.css.map",
-    "main.64c56ae5.js.map": "/simple-vege-life/static/js/main.64c56ae5.js.map"
+    "main.332f89d2.css.map": "/simple-vege-life/static/css/main.332f89d2.css.map",
+    "main.a223d752.js.map": "/simple-vege-life/static/js/main.a223d752.js.map"
   },
   "entrypoints": [
-    "static/css/main.1bded1f4.css",
-    "static/js/main.64c56ae5.js"
+    "static/css/main.332f89d2.css",
+    "static/js/main.a223d752.js"
   ]
 }
