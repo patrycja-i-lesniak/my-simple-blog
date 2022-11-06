@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 // components
-import { NotFoundPage, Register, Footer, Submenu, MainMenu } from "components";
+import { NotFoundPage, Register, Footer, Submenu, MainMenu, Thanks } from "components";
 import { Home, About, Contact } from "pages";
 import { ArticlesRoutes, LoginRoutes } from "routes";
 
@@ -21,6 +21,7 @@ function App() {
           <Route path="/articles/*" element={<ArticlesRoutes />} />
           <Route path="/login/*" element={<LoginRoutes />} />
           <Route path="/register" element={<Register />} />
+          <Route path='/thanks' element={<Thanks/>}/>
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
       </main>

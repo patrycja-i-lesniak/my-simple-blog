@@ -1,9 +1,14 @@
 import React from "react";
+import { ContactForm } from "components";
 
 export default function Contact() {
   return (
-    <div>
-      <h1>Contact page...</h1>
-    </div>
+    // <div>
+      <div className="row justify-content-center">
+        <div className="col-md-12">
+          <ContactForm />
+        </div>
+      </div>
+    // </div>
   );
 }
