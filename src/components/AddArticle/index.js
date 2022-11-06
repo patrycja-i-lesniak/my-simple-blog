@@ -74,7 +74,7 @@ export default function AddArticle() {
             .then(() => {
               toast("Article added successfully", { type: "succes " });
               setProgress(100);
-              navigate("/");
+              navigate("/articles");
             })
             .catch((eror) => {
               toast("Error adding article", { type: "error" });
