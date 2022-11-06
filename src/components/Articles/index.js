@@ -28,7 +28,7 @@ export default function Articles({ width }) {
   }, []);
 
   return (
-    <div className="card__container">
+    <div className="row row-cols-1 row-cols-md-2 justify-content-between mb-60">
       {articles.length === 0 ? (
         <p>No article found!</p>
       ) : (
@@ -45,7 +45,7 @@ export default function Articles({ width }) {
             likes,
             comments,
           }) => (
-            <Card className="card" key={id} style={{ width }}>
+            <Card className="card px-0" key={id} style={{ width }}>
               <Card.Img variant="top" src={imageUrl} />
               <Card.Body>
                 <Card.Title>{title}</Card.Title>
