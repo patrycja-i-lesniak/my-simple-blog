@@ -1,12 +1,16 @@
 .card__container {
-    margin: 20px 0;
+    margin: 20px 0 60px;
 }
 
 .card {
     margin-bottom: 20px;
 }
 
-.card__created  {
+.card__textWrapper {
+    margin: 40px;
+}
+
+.card__created {
     font-size: 14px;
     color: grey;
     padding: 10px 0;
@@ -14,11 +18,16 @@
 
 .card__buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin: 20px 0;
 }
 
-.card__buttons--optional {
+.card__icons--optional {
     gap: 20px;
     display: flex;
+}
+
+.card__iconsContainer {
+    display: flex;
+    justify-content: space-between;
 }
