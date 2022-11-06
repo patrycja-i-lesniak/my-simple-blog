@@ -16,11 +16,11 @@ export default function Submenu() {
         <NavLink end to="/">
           Home
         </NavLink>
-        <NavLink end to="/blogs">
-          Blogs
+        <NavLink end to="/articles">
+          Articles
         </NavLink>
-        <NavLink className="add" to="blogs/new" hidden={loading || !currentUser}>
-          Add new blog
+        <NavLink className="add" to="articles/new" hidden={loading || !currentUser}>
+          Add new article
         </NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/contact">Contact</NavLink>
@@ -28,33 +28,3 @@ export default function Submenu() {
     </nav>
   );
 }
-
-// export default function Submenu() {
-//   const [loading, setLoading] = useState(false);
-//   const currentUser = useAuth();
-//   return (
-//     <Container>
-//       <Nav defaultActiveKey="/" as="ul" className="submenu">
-//         <Nav.Item as="li">
-//           <Nav.Link href="/">Home</Nav.Link>
-//         </Nav.Item>
-//         <Nav.Item as="li">
-//           <Nav.Link href="/blogs">
-//             Recipes
-//             <IoIosArrowDown />
-//           </Nav.Link>
-//         </Nav.Item>
-//         <Nav.Item as="li">
-//           <Nav.Link href="/about">About</Nav.Link>
-//         </Nav.Item>
-//         <Nav.Item as="li">
-//           <Nav.Link href="/contact">Contact</Nav.Link>
-//         </Nav.Item>
-
-//         <Nav.Item as="li" hidden={loading || !currentUser}>
-//           <Nav.Link href="/new">New blog</Nav.Link>
-//         </Nav.Item>
-//       </Nav>
-//     </Container>
-//   );
-// }

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import SignedInLinks from "./SignedInLinks";
-import SignedOutLinks from "./SignedOutLinks";
+import LoginLinks from "./LoginLinks";
+import LogoutLinks from "./LogoutLinks";
 import { useAuth } from "firebaseConfig";
 import "./style.css";
 import { SearchBox, SearchIcons } from "components";
@@ -23,7 +23,7 @@ export default function MainMenu() {
         </Link>
         <div className="mainmenu__container">
           <SearchIcons isVisible={isVisible} toggleIsVisible={toggleIsVisible} />
-          {currentUser ? <SignedInLinks /> : <SignedOutLinks />}
+          {currentUser ? <LoginLinks /> : <LogoutLinks />}
         </div>
       </ul>
       {!isVisible && <SearchBox isVisible={isVisible} toggleIsVisible={toggleIsVisible} />}
