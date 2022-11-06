@@ -1,11 +1,18 @@
 import React from "react";
-import { BlogList, ControlledCarousel } from "components";
+import { Articles, ControlledCarousel } from "components";
 
 export default function Home() {
+
+
   return (
-    <div>
-      <ControlledCarousel/>
-      <BlogList />
+    <div className="pb-5">
+      <ControlledCarousel />
+      <div className="row justify-content-center ">
+        <div className="col-md-8 ">
+          <h1>Recent articles</h1>
+          <Articles />
+        </div>
+      </div>
     </div>
   );
 }
