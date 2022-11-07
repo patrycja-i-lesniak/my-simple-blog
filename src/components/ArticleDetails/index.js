@@ -10,7 +10,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function ArticleDetails() {
   const [article, setArticle] = useState(null);
-  const [user] = useAuthState(auth);
+  const [currentlyLoggedinUser] = useAuthState(auth);
   const { id } = useParams();
 
   const navigate = useNavigate();
@@ -23,51 +23,59 @@ export default function ArticleDetails() {
   }, []);
 
   return (
-    <div className="article__wrapper">
-      {article && (
-        <>
-          <Card className="card " key={id}>
-            <Card.Img variant="top" src={article.imageUrl} />
-            <Card.Body className="article__body">
-              <div className="article__edit">
-                {user && (
-                  <div className="article__icons--user">
-                    <EditArticle id={id} imageUrl={article.imageUrl} />
-                    <DeleteArticle id={id} imageUrl={article.imageUrl} />
-                  </div>
+    article && (
+      <>
+        <Card className="card col-sm-12" key={id}>
+          <Card.Img variant="top" src={article.imageUrl} />
+          <Card.Body className="article__body">
+            <div className="article__edit">
+              {article?.userId === currentlyLoggedinUser?.uid && (
+                <div className="article__icons--user">
+                  <EditArticle id={id} imageUrl={article.imageUrl} />
+                  <DeleteArticle id={id} imageUrl={article.imageUrl} />
+                </div>
+              )}
+            </div>
+            <Card.Title className="article__title">{article.title}</Card.Title>
+
+            <Card.Text className="article__createdAt">
+              Posted on: {article.createdAt.toDate().toDateString()}
+            </Card.Text>
+
+            <Card.Text className="article__description">{article.description}</Card.Text>
+            <hr />
+            <Card.Text>{article.articleBody}</Card.Text>
+            <Card.Text className="article__author">
+              Author: <span>{article.createdBy}</span>
+            </Card.Text>
+
+            <div className="d-flex my-5 justify-content-between">
+              <Button className="m-0" variant="outline-info" onClick={() => navigate("/articles")}>
+                Back to articles list
+              </Button>
+
+              <div className="d-flex align-items-center">
+                {currentlyLoggedinUser && <LikeButton id={id} likes={article.likes} />}
+                <p className="m-0 mx-3">
+                  {article.likes.length} {article.likes.length === 1 ? "like" : "likes"}
+                </p>
+
+                {article?.comments?.length > 0 && (
+                  <Button
+                    variant="link"
+                    onClick={() => navigate(`articles/${id}`)}
+                    className="p-0 text-decoration-none text-secondary"
+                  >
+                    {article?.comments?.length}{" "}
+                    {article?.comments?.length !== 1 ? "comments" : "comment"}
+                  </Button>
                 )}
               </div>
-              <Card.Title className="article__title">{article.title}</Card.Title>
-
-              <Card.Text className="article__createdAt">
-                Posted on: {article.createdAt.toDate().toDateString()}
-              </Card.Text>
-
-              <Card.Text className="article__description">{article.description}</Card.Text>
-              <hr />
-              <Card.Text>{article.articleBody}</Card.Text>
-              <Card.Text className="article__author">
-                Author: <span>{article.createdBy}</span>
-              </Card.Text>
-
-              <div className="article__icons mb-4">
-                <Button
-                  className="m-3 mx-0"
-                  variant="outline-info"
-                  onClick={() => navigate("/articles")}
-                >
-                  Back to articles list
-                </Button>
-                <div className="article__likes">
-                  {user && <LikeButton id={id} likes={article.likes} />}
-                  <p>{article.likes.length}</p>
-                </div>
-              </div>
-              <Comment id={article.id} />
-            </Card.Body>
-          </Card>
-        </>
-      )}
-    </div>
+            </div>
+            <Comment id={article.id} />
+          </Card.Body>
+        </Card>
+      </>
+    )
   );
 }
