@@ -1,6 +1,6 @@
-import React from 'react';
-import {Routes, Route} from 'react-router-dom';
-import {AllArticles, ArticlePage, AddNewArticle} from 'pages';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { AllArticles, AddNewArticle, ArticlePage } from "pages";
 
 export default function ArticlesRoutes() {
   return (
