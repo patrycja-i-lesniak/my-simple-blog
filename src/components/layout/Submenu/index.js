@@ -1,14 +1,10 @@
-import React, { useState } from "react";
-// import { Container, Nav } from "react-bootstrap";
-// import { IoIosArrowDown } from "react-icons/io";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "config/firebaseConfig";
 import "./style.css";
 
 export default function Submenu() {
   const currentUser = useAuth();
-
-  const [loading, setLoading] = useState(false);
 
   return (
     <nav>
@@ -19,7 +15,7 @@ export default function Submenu() {
         <NavLink end to="/articles">
           Articles
         </NavLink>
-        <NavLink className="add" to="articles/new" hidden={loading || !currentUser}>
+        <NavLink className="add" to="articles/new" hidden={!currentUser}>
           Add new article
         </NavLink>
         <NavLink to="/about">About</NavLink>
