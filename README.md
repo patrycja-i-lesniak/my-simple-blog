@@ -16,6 +16,8 @@ I am currently working on:
 
 [Simple-Vege-Life](https://patrycja-i-lesniak.github.io/simple-vege-life/)
 
+If you do not see pictures please come back tomorrow, firebase limitations.
+
 ## Technologies
 
 * React JS
