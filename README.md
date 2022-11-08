@@ -14,7 +14,7 @@ I am currently working on:
 
 ## Demo
 
-[Simple-Vege-Life](https://patrycja-i-lesniak.github.io/simple-vege-app/)
+[Simple-Vege-Life](https://patrycja-i-lesniak.github.io/simple-vege-life/)
 
 ## Technologies
 
