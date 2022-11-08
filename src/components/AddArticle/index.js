@@ -85,82 +85,79 @@ export default function AddArticle() {
   };
 
   return (
-    <div className="form-container">
-      {!user ? (
-        <div className="form__info">
-          <div className="form__login">
-            <Button variant="info" onClick={() => navigate("/login")}>
-              Login to create an article
-            </Button>
-          </div>
-
-          <div>
-            Don't have an account? <Link to="/register">Signup</Link>
-          </div>
+    !user ? (
+      <div className="p-3 pb-5'">
+        <div className="form__login">
+          <Button variant="info" onClick={() => navigate("/login")}>
+            Login to create an article
+          </Button>
         </div>
-      ) : (
-        <Form>
-          <h5>Add new article</h5>
-          <Form.Group className="mb-3" controlId="title">
-            <Form.Label>Title</Form.Label>
-            <Form.Control
-              type="text"
-              minLength="5"
-              required
-              onChange={(e) => handleChange(e)}
-              name="title"
-            />
-          </Form.Group>
 
-          <Form.Group className="mb-3" controlId="description">
-            <Form.Label>Description </Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={1}
-              type="text"
-              maxLength="300"
-              // required
-              onChange={(e) => handleChange(e)}
-              name="description"
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="articleBody">
-            <Form.Label>Article Body</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={5}
-              type="text"
-              minLength="100"
-              // required
-              onChange={(e) => handleChange(e)}
-              name="articleBody"
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="image">
-            <Form.Label>Add image</Form.Label>
-            <Form.Control type="file" accept="image/*" onChange={(e) => handleImageChange(e)} />
-          </Form.Group>
-
-          {/* {progress === 0 ? null : ( */}
-
-          <ProgressBar
-            className="publish"
-            variant="info"
-            now={`uploading image ${progress}%`}
-            label={`${progress}%`}
+        <div>
+          Don't have an account? <Link to="/register">Signup</Link>
+        </div>
+      </div>
+    ) : (
+      <Form className="p-3 pb-5">
+        <h2 className='pb-3'>Add new article</h2>
+        <Form.Group className="mb-3" controlId="title">
+          <Form.Label>Title</Form.Label>
+          <Form.Control
+            type="text"
+            minLength="5"
+            required
+            onChange={(e) => handleChange(e)}
+            name="title"
           />
+        </Form.Group>
 
-          {/* )} */}
+        <Form.Group className="mb-3" controlId="description">
+          <Form.Label>Description </Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={1}
+            type="text"
+            maxLength="300"
+            onChange={(e) => handleChange(e)}
+            name="description"
+          />
+        </Form.Group>
 
-          <Form.Group className="add__button">
-            <Button variant="info" onClick={handlePublish}>
-              Publish Article <MdPublishedWithChanges />
-            </Button>
-          </Form.Group>
-        </Form>
-      )}
-    </div>
+        <Form.Group className="mb-3" controlId="articleBody">
+          <Form.Label>Article Body</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={5}
+            type="text"
+            minLength="100"
+            // required
+            onChange={(e) => handleChange(e)}
+            name="articleBody"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="image">
+          <Form.Label>Add image</Form.Label>
+          <Form.Control type="file" accept="image/*" onChange={(e) => handleImageChange(e)} />
+        </Form.Group>
+
+        {/* {progress === 0 ? null : ( */}
+
+        <ProgressBar
+          className="publish"
+          variant="info"
+          now={`uploading image ${progress}%`}
+          label={`${progress}%`}
+        />
+
+        {/* )} */}
+
+        <Form.Group className="add__button">
+          <Button variant="info" onClick={handlePublish}>
+            Publish Article <MdPublishedWithChanges />
+          </Button>
+        </Form.Group>
+      </Form>
+    )
   );
 }
