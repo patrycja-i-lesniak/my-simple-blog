@@ -3,9 +3,9 @@ import { AddArticle } from "components";
 
 export default function AddNewArticle() {
   return (
-    <div className="pb-5">
-      <div className="row justify-content-center">
-        <div className="col-md-12">
+    <div className="p-3 pb-5">
+      <div className="row justify-content-center m-3">
+        <div className="col-sm-10 col-md-8 bg-light rounded-lg px-3">
           <AddArticle />
         </div>
       </div>

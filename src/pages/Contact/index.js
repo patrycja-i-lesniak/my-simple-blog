@@ -3,9 +3,9 @@ import { ContactForm } from "components";
 
 export default function Contact() {
   return (
-    <div className="pb-5">
-      <div className="row justify-content-center">
-        <div className="col-lg-10 col-xl-8">
+    <div className="p-3 pb-5">
+      <div className="row justify-content-center m-3">
+        <div className="col-sm-10 col-md-8 bg-light rounded-lg px-3">
           <ContactForm />
         </div>
       </div>
