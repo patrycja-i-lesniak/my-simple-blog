@@ -1,4 +1,33 @@
-# Getting Started with Create React App
+# SIMPLE VEGE LIFE APP (React Firebase)
+
+* Author: **Patrycja Leśniak**
+* Work in progress.
+* November, 2021.
+
+An application based on the capabilities of firebase. Currently (any) logged-in user can add articles, eventually only administrator or editor will have such ability. Logged in user can like posts and comment on them. He also has the ability to edit his posts and delete them.
+
+I am currently working on:
+
+* assigning roles for individual users,
+* editing the user data available on the profile page, including the, ability to add and change the avatar,
+* editing articles
+
+## Demo
+
+[Simple-Vege-Life](https://patrycja-i-lesniak.github.io/simple-vege-app/)
+
+## Technologies
+
+* React JS
+* HTML, CSS, ES6+
+* Firebase
+* Bootstrap, React-Bootstrap
+* React Toastify
+* Semantic HTML
+
+---
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
