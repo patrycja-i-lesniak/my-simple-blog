@@ -10,7 +10,8 @@ I am currently working on:
 
 * assigning roles for individual users,
 * editing the user data available on the profile page, including the, ability to add and change the avatar,
-* editing articles
+* editing articles,
+* making correct use of bootstrap's capabilities and removing unnecessarily assigned classes.
 
 ## Demo
 
