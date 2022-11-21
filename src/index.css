@@ -23,21 +23,8 @@ span {
 	font-weight: bold;
 }
 
-.wrapper {
-	display: flex;
-	justify-content: center;
-	margin: 50px;
-}
 
-.box-container {
-	display: flex;
-	gap: 5px;
-}
 
-.box {
-	width: 25%;
-	background: darkgrey;
-}
 
 .form-container {
 	background: rgb(243, 243, 243);
@@ -45,7 +32,6 @@ span {
 	max-width: 60vw;
 	margin: 30px auto;
 	border-radius: 3px;
-	width: 70%;
 	max-width: 800px;
 }
 
@@ -72,7 +58,7 @@ span {
 	margin: 20px;
 }
 
-.search-container {
+.search__container {
 	height: 85px;
 	background: #F5F5F5;
 	display: flex;
@@ -83,7 +69,7 @@ span {
 	transition: height 0.4s ease-in-out;
 }
 
-.search-form {
+.search__form {
 	margin: 0 100px;
 	padding: 0;
 	border: none;
@@ -92,13 +78,13 @@ span {
 	align-items: center
 }
 
-.search-icon {
+.search__icon {
 	font-size: 22px;
 	margin: 0 20px;
 	color: #717171;
 }
 
-.search-input {
+.search__input {
 	width: 100%;
 	background: #F5F5F5;
 	border: none;
