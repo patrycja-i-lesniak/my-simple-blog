@@ -16,6 +16,9 @@
     "font-awesome": "^4.7.0",
     "gh-pages": "^4.0.0",
     "git": "^0.1.5",
+    "glob-parent": "^6.0.2",
+    "loader-utils": "^3.2.1",
+    "minimatch": "^5.1.1",
     "nth-check": "^2.1.1",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
@@ -25,6 +28,7 @@
     "react-router-dom": "^6.4.2",
     "react-scripts": "^5.0.1",
     "react-toastify": "^9.1.0",
+    "terser": "^5.16.0",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
