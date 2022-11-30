@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/simple-vege-life/static/css/main.47804ba9.css",
-    "main.js": "/simple-vege-life/static/js/main.5aeb7d8d.js",
+    "main.css": "/simple-vege-life/static/css/main.fa925b42.css",
+    "main.js": "/simple-vege-life/static/js/main.33505fdc.js",
     "static/media/photo-1.jpg": "/simple-vege-life/static/media/photo-1.3ec88e1ba02d90998d4b.jpg",
     "static/media/photo-3.jpg": "/simple-vege-life/static/media/photo-3.5b6ef024d24e76380f34.jpg",
     "static/media/photo-2.jpg": "/simple-vege-life/static/media/photo-2.237aa3d5593acc77b494.jpg",
@@ -13,11 +13,11 @@
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/simple-vege-life/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "static/media/blank-profile-picture.png": "/simple-vege-life/static/media/blank-profile-picture.521b0de4a03f05ceab25.png",
     "index.html": "/simple-vege-life/index.html",
-    "main.47804ba9.css.map": "/simple-vege-life/static/css/main.47804ba9.css.map",
-    "main.5aeb7d8d.js.map": "/simple-vege-life/static/js/main.5aeb7d8d.js.map"
+    "main.fa925b42.css.map": "/simple-vege-life/static/css/main.fa925b42.css.map",
+    "main.33505fdc.js.map": "/simple-vege-life/static/js/main.33505fdc.js.map"
   },
   "entrypoints": [
-    "static/css/main.47804ba9.css",
-    "static/js/main.5aeb7d8d.js"
+    "static/css/main.fa925b42.css",
+    "static/js/main.33505fdc.js"
   ]
 }
